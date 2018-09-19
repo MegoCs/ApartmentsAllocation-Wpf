@@ -26,6 +26,7 @@ namespace ApartmentsAllocationHelper
             MainForm mainForm = new MainForm();
             this.Hide();
             mainForm.ShowDialog();
+            
             this.Close();
         }
     }

@@ -30,13 +30,23 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.مشروعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ادارةمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.تعديلبياناتمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.بياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ادراجبياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تعديلاسممشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.اضافةمشروعجديدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اضافةاسمالمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اضافةابراجالىالمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اضافةتفاصيلالبرجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.العملاءالمخصصلهموحداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الوحداتالغيرمخصصةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تقريرتخصيصوحدةلعميلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.بياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ادراجبياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الغاءحجزاوتخصيصعميلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,58 +67,130 @@
             // مشروعاتToolStripMenuItem
             // 
             this.مشروعاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ادارةمشروعToolStripMenuItem,
-            this.تعديلبياناتمشروعToolStripMenuItem});
+            this.manageProjectToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.تعديلبياناتمشروعToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.اضافةمشروعجديدToolStripMenuItem});
             this.مشروعاتToolStripMenuItem.Name = "مشروعاتToolStripMenuItem";
-            this.مشروعاتToolStripMenuItem.Size = new System.Drawing.Size(66, 19);
+            this.مشروعاتToolStripMenuItem.Size = new System.Drawing.Size(85, 25);
             this.مشروعاتToolStripMenuItem.Text = "مشروعات";
             // 
-            // ادارةمشروعToolStripMenuItem
+            // manageProjectToolStripMenuItem
             // 
-            this.ادارةمشروعToolStripMenuItem.Name = "ادارةمشروعToolStripMenuItem";
-            this.ادارةمشروعToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ادارةمشروعToolStripMenuItem.Text = "ادارة مشروع";
+            this.manageProjectToolStripMenuItem.Enabled = false;
+            this.manageProjectToolStripMenuItem.Name = "manageProjectToolStripMenuItem";
+            this.manageProjectToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.manageProjectToolStripMenuItem.Text = "ادارة مشروع";
+            this.manageProjectToolStripMenuItem.Click += new System.EventHandler(this.ManageProjectToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(205, 6);
             // 
             // تعديلبياناتمشروعToolStripMenuItem
             // 
+            this.تعديلبياناتمشروعToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.تعديلاسممشروعToolStripMenuItem,
+            this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem});
             this.تعديلبياناتمشروعToolStripMenuItem.Name = "تعديلبياناتمشروعToolStripMenuItem";
-            this.تعديلبياناتمشروعToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.تعديلبياناتمشروعToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.تعديلبياناتمشروعToolStripMenuItem.Text = "تعديل بيانات مشروع";
             // 
-            // بياناتالعملاءToolStripMenuItem
+            // تعديلاسممشروعToolStripMenuItem
             // 
-            this.بياناتالعملاءToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ادراجبياناتالعملاءToolStripMenuItem});
-            this.بياناتالعملاءToolStripMenuItem.Name = "بياناتالعملاءToolStripMenuItem";
-            this.بياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(84, 19);
-            this.بياناتالعملاءToolStripMenuItem.Text = "بيانات العملاء";
+            this.تعديلاسممشروعToolStripMenuItem.Name = "تعديلاسممشروعToolStripMenuItem";
+            this.تعديلاسممشروعToolStripMenuItem.Size = new System.Drawing.Size(287, 26);
+            this.تعديلاسممشروعToolStripMenuItem.Text = "تعديل اسم المشروع";
             // 
-            // ادراجبياناتالعملاءToolStripMenuItem
+            // تعديلمساحاتوبياناتالوحداتToolStripMenuItem
             // 
-            this.ادراجبياناتالعملاءToolStripMenuItem.Name = "ادراجبياناتالعملاءToolStripMenuItem";
-            this.ادراجبياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ادراجبياناتالعملاءToolStripMenuItem.Text = "ادراج بيانات العملاء";
+            this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem.Name = "تعديلمساحاتوبياناتالوحداتToolStripMenuItem";
+            this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem.Size = new System.Drawing.Size(287, 26);
+            this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem.Text = "تعديل مساحات و بيانات الوحدات";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            // 
+            // اضافةمشروعجديدToolStripMenuItem
+            // 
+            this.اضافةمشروعجديدToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اضافةاسمالمشروعToolStripMenuItem,
+            this.اضافةابراجالىالمشروعToolStripMenuItem,
+            this.اضافةتفاصيلالبرجToolStripMenuItem});
+            this.اضافةمشروعجديدToolStripMenuItem.Name = "اضافةمشروعجديدToolStripMenuItem";
+            this.اضافةمشروعجديدToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.اضافةمشروعجديدToolStripMenuItem.Text = "مشروع جديد";
+            // 
+            // اضافةاسمالمشروعToolStripMenuItem
+            // 
+            this.اضافةاسمالمشروعToolStripMenuItem.Name = "اضافةاسمالمشروعToolStripMenuItem";
+            this.اضافةاسمالمشروعToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.اضافةاسمالمشروعToolStripMenuItem.Text = "اضافة اسم المشروع";
+            // 
+            // اضافةابراجالىالمشروعToolStripMenuItem
+            // 
+            this.اضافةابراجالىالمشروعToolStripMenuItem.Name = "اضافةابراجالىالمشروعToolStripMenuItem";
+            this.اضافةابراجالىالمشروعToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.اضافةابراجالىالمشروعToolStripMenuItem.Text = "اضافة ابراج الى المشروع";
+            // 
+            // اضافةتفاصيلالبرجToolStripMenuItem
+            // 
+            this.اضافةتفاصيلالبرجToolStripMenuItem.Name = "اضافةتفاصيلالبرجToolStripMenuItem";
+            this.اضافةتفاصيلالبرجToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.اضافةتفاصيلالبرجToolStripMenuItem.Text = "اضافة تفاصيل البرج";
             // 
             // تقاريرToolStripMenuItem
             // 
             this.تقاريرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.العملاءالمخصصلهموحداتToolStripMenuItem,
-            this.الوحداتالغيرمخصصةToolStripMenuItem});
+            this.الوحداتالغيرمخصصةToolStripMenuItem,
+            this.تقريرتخصيصوحدةلعميلToolStripMenuItem});
             this.تقاريرToolStripMenuItem.Name = "تقاريرToolStripMenuItem";
-            this.تقاريرToolStripMenuItem.Size = new System.Drawing.Size(47, 19);
+            this.تقاريرToolStripMenuItem.Size = new System.Drawing.Size(59, 25);
             this.تقاريرToolStripMenuItem.Text = "تقارير";
             // 
             // العملاءالمخصصلهموحداتToolStripMenuItem
             // 
             this.العملاءالمخصصلهموحداتToolStripMenuItem.Name = "العملاءالمخصصلهموحداتToolStripMenuItem";
-            this.العملاءالمخصصلهموحداتToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.العملاءالمخصصلهموحداتToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.العملاءالمخصصلهموحداتToolStripMenuItem.Text = "العملاء المخصص لهم وحدات";
             // 
             // الوحداتالغيرمخصصةToolStripMenuItem
             // 
             this.الوحداتالغيرمخصصةToolStripMenuItem.Name = "الوحداتالغيرمخصصةToolStripMenuItem";
-            this.الوحداتالغيرمخصصةToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.الوحداتالغيرمخصصةToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.الوحداتالغيرمخصصةToolStripMenuItem.Text = "الوحدات الغير مخصصة";
+            // 
+            // تقريرتخصيصوحدةلعميلToolStripMenuItem
+            // 
+            this.تقريرتخصيصوحدةلعميلToolStripMenuItem.Name = "تقريرتخصيصوحدةلعميلToolStripMenuItem";
+            this.تقريرتخصيصوحدةلعميلToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
+            this.تقريرتخصيصوحدةلعميلToolStripMenuItem.Text = "تقرير تخصيص وحدة لعميل";
+            // 
+            // بياناتالعملاءToolStripMenuItem
+            // 
+            this.بياناتالعملاءToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ادراجبياناتالعملاءToolStripMenuItem,
+            this.الغاءحجزاوتخصيصعميلToolStripMenuItem});
+            this.بياناتالعملاءToolStripMenuItem.Name = "بياناتالعملاءToolStripMenuItem";
+            this.بياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(107, 25);
+            this.بياناتالعملاءToolStripMenuItem.Text = "بيانات العملاء";
+            // 
+            // ادراجبياناتالعملاءToolStripMenuItem
+            // 
+            this.ادراجبياناتالعملاءToolStripMenuItem.Name = "ادراجبياناتالعملاءToolStripMenuItem";
+            this.ادراجبياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.ادراجبياناتالعملاءToolStripMenuItem.Text = "ادراج بيانات العملاء الجدد";
+            // 
+            // الغاءحجزاوتخصيصعميلToolStripMenuItem
+            // 
+            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Name = "الغاءحجزاوتخصيصعميلToolStripMenuItem";
+            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Text = "الغاء حجز او تخصيص عميل";
             // 
             // MainForm
             // 
@@ -119,8 +201,10 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الصفحة الرئيسية";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -135,12 +219,22 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem مشروعاتToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ادارةمشروعToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تعديلبياناتمشروعToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem بياناتالعملاءToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ادراجبياناتالعملاءToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقاريرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem العملاءالمخصصلهموحداتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الوحداتالغيرمخصصةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem تعديلاسممشروعToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem تعديلمساحاتوبياناتالوحداتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem اضافةمشروعجديدToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اضافةاسمالمشروعToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اضافةابراجالىالمشروعToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اضافةتفاصيلالبرجToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem تقريرتخصيصوحدةلعميلToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الغاءحجزاوتخصيصعميلToolStripMenuItem;
     }
 }
