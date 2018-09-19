@@ -23,6 +23,10 @@ namespace ApartmentsAllocationHelper
         public MainWindow()
         {
             InitializeComponent();
+            MainForm mainForm = new MainForm();
+            this.Hide();
+            mainForm.ShowDialog();
+            this.Close();
         }
     }
 }
