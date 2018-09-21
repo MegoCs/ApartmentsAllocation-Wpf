@@ -45,5 +45,11 @@ namespace ApartmentsAllocationHelper
             ManageProjectSelection m = new ManageProjectSelection(pList);
             m.ShowDialog();
         }
+
+        private void AddClientDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccessDbDataMigration mig = new AccessDbDataMigration();
+            mig.ShowDialog();
+        }
     }
 }

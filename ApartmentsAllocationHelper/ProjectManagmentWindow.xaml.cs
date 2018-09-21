@@ -110,7 +110,10 @@ namespace ApartmentsAllocationHelper
 
         private void OccupayApartment_Click(object sender, RoutedEventArgs e)
         {
-       
+            if (curApart != null && curFloor != null && curTower != null) {
+                OccupationWindow occ = new OccupationWindow(curApart,curFloor,curTower);
+                occ.ShowDialog();
+            }
         }
     }
 }

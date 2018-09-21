@@ -45,8 +45,8 @@
             this.الوحداتالغيرمخصصةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تقريرتخصيصوحدةلعميلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.بياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ادراجبياناتالعملاءToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الغاءحجزاوتخصيصعميلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClientDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,23 +174,24 @@
             // بياناتالعملاءToolStripMenuItem
             // 
             this.بياناتالعملاءToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ادراجبياناتالعملاءToolStripMenuItem,
-            this.الغاءحجزاوتخصيصعميلToolStripMenuItem});
+            this.addClientDataToolStripMenuItem,
+            this.cancelOccupationToolStripMenuItem});
             this.بياناتالعملاءToolStripMenuItem.Name = "بياناتالعملاءToolStripMenuItem";
             this.بياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(107, 25);
             this.بياناتالعملاءToolStripMenuItem.Text = "بيانات العملاء";
             // 
-            // ادراجبياناتالعملاءToolStripMenuItem
+            // addClientDataToolStripMenuItem
             // 
-            this.ادراجبياناتالعملاءToolStripMenuItem.Name = "ادراجبياناتالعملاءToolStripMenuItem";
-            this.ادراجبياناتالعملاءToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.ادراجبياناتالعملاءToolStripMenuItem.Text = "ادراج بيانات العملاء الجدد";
+            this.addClientDataToolStripMenuItem.Name = "addClientDataToolStripMenuItem";
+            this.addClientDataToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.addClientDataToolStripMenuItem.Text = "ادراج بيانات العملاء الجدد";
+            this.addClientDataToolStripMenuItem.Click += new System.EventHandler(this.AddClientDataToolStripMenuItem_Click);
             // 
-            // الغاءحجزاوتخصيصعميلToolStripMenuItem
+            // cancelOccupationToolStripMenuItem
             // 
-            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Name = "الغاءحجزاوتخصيصعميلToolStripMenuItem";
-            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.الغاءحجزاوتخصيصعميلToolStripMenuItem.Text = "الغاء حجز او تخصيص عميل";
+            this.cancelOccupationToolStripMenuItem.Name = "cancelOccupationToolStripMenuItem";
+            this.cancelOccupationToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.cancelOccupationToolStripMenuItem.Text = "الغاء حجز او تخصيص عميل";
             // 
             // MainForm
             // 
@@ -222,7 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تعديلبياناتمشروعToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem بياناتالعملاءToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ادراجبياناتالعملاءToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClientDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقاريرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem العملاءالمخصصلهموحداتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الوحداتالغيرمخصصةToolStripMenuItem;
@@ -235,6 +236,6 @@
         private System.Windows.Forms.ToolStripMenuItem اضافةابراجالىالمشروعToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem اضافةتفاصيلالبرجToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقريرتخصيصوحدةلعميلToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الغاءحجزاوتخصيصعميلToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelOccupationToolStripMenuItem;
     }
 }
