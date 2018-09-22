@@ -37,9 +37,8 @@
             this.تعديلمساحاتوبياناتالوحداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.اضافةمشروعجديدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةاسمالمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةابراجالىالمشروعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةتفاصيلالبرجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addTowersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.تقاريرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.العملاءالمخصصلهموحداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الوحداتالغيرمخصصةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,30 +117,25 @@
             // اضافةمشروعجديدToolStripMenuItem
             // 
             this.اضافةمشروعجديدToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اضافةاسمالمشروعToolStripMenuItem,
-            this.اضافةابراجالىالمشروعToolStripMenuItem,
-            this.اضافةتفاصيلالبرجToolStripMenuItem});
+            this.addProjectToolStripMenuItem,
+            this.addTowersToolStripMenuItem});
             this.اضافةمشروعجديدToolStripMenuItem.Name = "اضافةمشروعجديدToolStripMenuItem";
             this.اضافةمشروعجديدToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.اضافةمشروعجديدToolStripMenuItem.Text = "مشروع جديد";
             // 
-            // اضافةاسمالمشروعToolStripMenuItem
+            // addProjectToolStripMenuItem
             // 
-            this.اضافةاسمالمشروعToolStripMenuItem.Name = "اضافةاسمالمشروعToolStripMenuItem";
-            this.اضافةاسمالمشروعToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.اضافةاسمالمشروعToolStripMenuItem.Text = "اضافة اسم المشروع";
+            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.addProjectToolStripMenuItem.Text = "اضافة اسم المشروع";
+            this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.AddProjectToolStripMenuItem_Click);
             // 
-            // اضافةابراجالىالمشروعToolStripMenuItem
+            // addTowersToolStripMenuItem
             // 
-            this.اضافةابراجالىالمشروعToolStripMenuItem.Name = "اضافةابراجالىالمشروعToolStripMenuItem";
-            this.اضافةابراجالىالمشروعToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.اضافةابراجالىالمشروعToolStripMenuItem.Text = "اضافة ابراج الى المشروع";
-            // 
-            // اضافةتفاصيلالبرجToolStripMenuItem
-            // 
-            this.اضافةتفاصيلالبرجToolStripMenuItem.Name = "اضافةتفاصيلالبرجToolStripMenuItem";
-            this.اضافةتفاصيلالبرجToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.اضافةتفاصيلالبرجToolStripMenuItem.Text = "اضافة تفاصيل البرج";
+            this.addTowersToolStripMenuItem.Name = "addTowersToolStripMenuItem";
+            this.addTowersToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.addTowersToolStripMenuItem.Text = "اضافة برج جديد الى مشروع";
+            this.addTowersToolStripMenuItem.Click += new System.EventHandler(this.AddTowersToolStripMenuItem_Click);
             // 
             // تقاريرToolStripMenuItem
             // 
@@ -232,9 +226,8 @@
         private System.Windows.Forms.ToolStripMenuItem تعديلمساحاتوبياناتالوحداتToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem اضافةمشروعجديدToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem اضافةاسمالمشروعToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem اضافةابراجالىالمشروعToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem اضافةتفاصيلالبرجToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addTowersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem تقريرتخصيصوحدةلعميلToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelOccupationToolStripMenuItem;
     }

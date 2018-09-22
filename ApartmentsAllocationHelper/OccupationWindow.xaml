@@ -65,7 +65,7 @@
                     <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="م" FontSize="22"/>
                 </Grid>
             </Border>
-            <Button x:Name="ConfirmOccupation" Margin="10" Content="تأكيد عملية التخصيص" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="auto" Height="40"/>
+            <Button x:Name="ConfirmOccupation" Margin="10" Content="تأكيد عملية التخصيص" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="auto" Height="40" IsEnabled="False" Click="ConfirmOccupation_Click"/>
         </StackPanel>
 
     </Grid>

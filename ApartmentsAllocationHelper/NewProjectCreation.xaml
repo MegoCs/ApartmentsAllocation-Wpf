@@ -1,0 +1,22 @@
+﻿<Window x:Class="ApartmentsAllocationHelper.NewProjectCreation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApartmentsAllocationHelper"
+        mc:Ignorable="d"
+          Title="اضافة مشروع جديد" Height="200" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Width="auto" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Margin="10" Grid.Column="1" Content="اسم المشروع" FontSize="24" />
+        <TextBox Margin="10" Name="projNameTxt" Grid.Column="0" Text="" FontSize="22" Width="200" TextAlignment="Center"/>
+        <Button  Margin="10" Name="saveBtn" Grid.ColumnSpan="2" Grid.Row="1" Content="اضافة" FontSize="24" Click="SaveBtn_Click"/>
+    </Grid>
+</Window>

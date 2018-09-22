@@ -147,12 +147,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddTowersToProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindowWrapper.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="AccessDbDataMigration.xaml.cs">
       <DependentUpon>AccessDbDataMigration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddTowersToProjectWindow.xaml.cs">
+      <DependentUpon>AddTowersToProjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -170,6 +177,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManageProjectSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewProjectCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +204,9 @@
     <Compile Include="Models\EntityModels\Floors.cs" />
     <Compile Include="Models\EntityModels\Projects.cs" />
     <Compile Include="Models\EntityModels\Towers.cs" />
+    <Compile Include="NewProjectCreation.xaml.cs">
+      <DependentUpon>NewProjectCreation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OccupationWindow.xaml.cs">
       <DependentUpon>OccupationWindow.xaml</DependentUpon>
     </Compile>

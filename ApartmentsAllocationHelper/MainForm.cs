@@ -51,5 +51,19 @@ namespace ApartmentsAllocationHelper
             AccessDbDataMigration mig = new AccessDbDataMigration();
             mig.ShowDialog();
         }
+
+        private void AddProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewProjectCreation newPro = new NewProjectCreation();
+            newPro.ShowDialog();
+            projectLoaderAgent.RunWorkerAsync();
+
+        }
+
+        private void AddTowersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTowersToProjectWindow obj = new AddTowersToProjectWindow();
+                obj.ShowDialog();
+        }
     }
 }

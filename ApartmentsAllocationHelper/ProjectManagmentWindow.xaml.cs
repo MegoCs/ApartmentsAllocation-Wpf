@@ -113,6 +113,7 @@ namespace ApartmentsAllocationHelper
             if (curApart != null && curFloor != null && curTower != null) {
                 OccupationWindow occ = new OccupationWindow(curApart,curFloor,curTower);
                 occ.ShowDialog();
+                FloorsList_SelectionChanged(null, null);
             }
         }
     }

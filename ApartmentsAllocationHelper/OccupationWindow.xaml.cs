@@ -50,9 +50,15 @@ namespace ApartmentsAllocationHelper
                 {
                     _curClient = _dbContext.Clients.SingleOrDefault(x => x.NationalId == searchClientNationalTxt.Text);
                     if (!(_curClient is null))
+                    {
                         UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, "Address");
+                        ConfirmOccupation.IsEnabled = true;
+                    }
                     else
+                    {
                         MessageBox.Show("لا توجد بيانات بهذا الرقم");
+                        ConfirmOccupation.IsEnabled = false;
+                    }
                 }
             }
             else
@@ -65,6 +71,20 @@ namespace ApartmentsAllocationHelper
             clientPhoneTxt.Text = phone;
             clientNationalIdTxt.Text = national;
             clientAddressTxt.Text = add;
+        }
+
+        private void ConfirmOccupation_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(_curClient is null)) {
+                using (_dbContext = new ApartmentDeliveryDbContext()) {
+                    _curApart.OccupationStatus = "DONE";
+                    _curApart.ClientId = _curClient.Id;
+                    _dbContext.Apartments.Update(_curApart);
+                    _dbContext.SaveChanges();
+                    MessageBox.Show("تم تأكيد العملية");
+                    this.Close();
+                }
+            }
         }
     }
 }
