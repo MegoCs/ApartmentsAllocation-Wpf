@@ -58,12 +58,6 @@
                 <TextBlock Text="الشقق" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" TextDecorations="Underline"/>
                 <Button Width="auto" Content="تخصيص الوحدة" HorizontalAlignment="Center" Name="OccupayApartment" Click="OccupayApartment_Click" Margin="0,10,0,0"/>
                 <ListView BorderThickness="0" SelectionChanged="ApartmentsList_SelectionChanged" Name="ApartmentsList" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0" Background="Transparent" >
-                    <ListView.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="حجز"/>
-                            <MenuItem Header="تعديل بيانات"/>
-                        </ContextMenu>
-                    </ListView.ContextMenu>
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Style.Triggers>

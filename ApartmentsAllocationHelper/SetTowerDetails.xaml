@@ -1,0 +1,33 @@
+﻿<Window x:Class="ApartmentsAllocationHelper.SetTowerDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApartmentsAllocationHelper"
+        mc:Ignorable="d"
+        Title="SetTowerDetails" Height="450" Width="800">
+    <Grid>
+        <ComboBox Name="towersCombo" HorizontalAlignment="Left" Margin="655,120,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="TowerName" SelectedValuePath="Id"/>
+        <Button Name="displayTowerDetailsBtn" Content="عرض" HorizontalAlignment="Left" Margin="670,200,0,0" VerticalAlignment="Top" Width="75" Click="DisplayTowerDetailsBtn_Click"/>
+        <ListView BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" Margin="46,70,329,287" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Assets/Apartment.png" Width="50" Height="50"/>
+                        <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding ApartmentName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Content="المساحة" HorizontalAlignment="Left" Margin="425,175,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="280,179,0,0" TextWrapping="Wrap" Text="118" VerticalAlignment="Top" TextAlignment="Center" Width="120"/>
+        <Image HorizontalAlignment="Left" Height="143" Margin="185,207,0,0" VerticalAlignment="Top" Width="278"/>
+        <Button Name="selectImg" Content="اختيار صورة للشقة" HorizontalAlignment="Left" Margin="185,182,0,0" VerticalAlignment="Top" Click="SelectImg_Click" />
+        <Button Name="saveDetailsBtn" Content="حفظ البيانات" HorizontalAlignment="Left" Margin="397,355,0,0" VerticalAlignment="Top" Click="SaveDetailsBtn_Click" />
+    </Grid>
+</Window>
