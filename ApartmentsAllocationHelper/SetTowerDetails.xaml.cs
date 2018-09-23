@@ -20,7 +20,7 @@ namespace ApartmentsAllocationHelper
     /// </summary>
     public partial class SetTowerDetails : Window
     {
-        ApartmentDeliveryDbContext _dbcontext;
+        private ApartmentDeliveryDbContext _dbcontext;
         public SetTowerDetails(List<Towers> towersList)
         {
             InitializeComponent();
