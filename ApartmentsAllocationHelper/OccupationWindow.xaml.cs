@@ -79,6 +79,7 @@ namespace ApartmentsAllocationHelper
                 using (_dbContext = new ApartmentDeliveryDbContext()) {
                     _curApart.OccupationStatus = "DONE";
                     _curApart.ClientId = _curClient.Id;
+                    _curApart.OccupationDate = DateTime.Now;
                     _dbContext.Apartments.Update(_curApart);
                     _dbContext.SaveChanges();
                     MessageBox.Show("تم تأكيد العملية");

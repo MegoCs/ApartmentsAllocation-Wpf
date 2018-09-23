@@ -60,6 +60,41 @@ namespace ApartmentsAllocationHelper
             if (towerToBeAdd.FloorsNumber != 0 && towerToBeAdd.ApartmentsPerFloor != 0 && !string.IsNullOrEmpty(towerToBeAdd.TowerName)) {
                 using (_dbContext = new ApartmentDeliveryDbContext()) {
                     _dbContext.Towers.Add(towerToBeAdd);
+
+                    for (int i = 1  ; i < towerToBeAdd.FloorsNumber+1; i++)
+                    {
+                        Floors newFloor = new Floors()
+                        {
+                            ApartmentsNumber = towerToBeAdd.ApartmentsPerFloor,
+                            FloorNo = i,
+                            TowerId = towerToBeAdd.Id,
+                            Id = Guid.NewGuid().ToString()
+                        };
+
+                        _dbContext.Floors.Add(newFloor);
+
+                        for (int j = 1; j < towerToBeAdd.ApartmentsPerFloor +1; j++)
+                        {
+
+                            ApartmentTypesPerTower apartType = new ApartmentTypesPerTower() {
+                                ApartmentArea=j*10,
+                                Id=Guid.NewGuid().ToString(),
+                                TowerId=towerToBeAdd.Id,
+                            };
+                            _dbContext.ApartmentTypesPerTower.Add(apartType);
+                            Apartments newApart = new Apartments() {
+                                ApartmentNumber = (i * 10) + j,
+                                ApartmentName = $"{((i * 10) + j)} شقة",
+                                OccupationStatus="NONE",
+                                FloorId=newFloor.Id,
+                                Id=Guid.NewGuid().ToString(),
+                                TypeId = apartType.Id,
+                            };
+                            _dbContext.Apartments.Add(newApart);
+                        }
+
+                    }
+
                     _dbContext.SaveChanges();
                     MessageBox.Show("تم اضافة البرج");
                 }
