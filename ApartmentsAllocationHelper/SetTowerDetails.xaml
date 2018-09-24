@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="SetTowerDetails" Height="450" Width="800">
+        Title="SetTowerDetails" Height="600" Width="1200">
     <Grid>
-        <ComboBox Name="towersCombo" HorizontalAlignment="Left" Margin="655,120,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="TowerName" SelectedValuePath="Id"/>
-        <Button Name="displayTowerDetailsBtn" Content="عرض" HorizontalAlignment="Left" Margin="670,200,0,0" VerticalAlignment="Top" Width="75" Click="DisplayTowerDetailsBtn_Click"/>
-        <ListView BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" Margin="46,70,329,287" >
+        <ComboBox SelectionChanged="TowersCombo_SelectionChanged" Name="towersCombo" HorizontalAlignment="Left" Margin="520,25,0,0" VerticalAlignment="Top" Width="170" DisplayMemberPath="TowerName" SelectedValuePath="Id"/>
+        <ListView Height="auto" BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" Margin="46,39,697,436" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -19,15 +18,21 @@
                 <DataTemplate>
                     <StackPanel>
                         <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Assets/Apartment.png" Width="50" Height="50"/>
-                        <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding ApartmentName}"/>
+                        <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding TagName}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Content="المساحة" HorizontalAlignment="Left" Margin="425,175,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="280,179,0,0" TextWrapping="Wrap" Text="118" VerticalAlignment="Top" TextAlignment="Center" Width="120"/>
-        <Image HorizontalAlignment="Left" Height="143" Margin="185,207,0,0" VerticalAlignment="Top" Width="278"/>
-        <Button Name="selectImg" Content="اختيار صورة للشقة" HorizontalAlignment="Left" Margin="185,182,0,0" VerticalAlignment="Top" Click="SelectImg_Click" />
-        <Button Name="saveDetailsBtn" Content="حفظ البيانات" HorizontalAlignment="Left" Margin="397,355,0,0" VerticalAlignment="Top" Click="SaveDetailsBtn_Click" />
+        <Label Content="المساحة" HorizontalAlignment="Left" Margin="413,166,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="typeAreaTxt" HorizontalAlignment="Left" Height="23" Margin="305,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Center" Width="55"/>
+        <Image Name="curTypeImg"  HorizontalAlignment="Left" Height="204" Margin="14,271,0,0" VerticalAlignment="Top" Width="428"/>
+        <Button Name="selectImg" Content="اختيار صورة للشقة" HorizontalAlignment="Left" Margin="180,177,0,0" VerticalAlignment="Top" Click="SelectImg_Click" />
+        <Button Name="saveDetailsBtn" Content="حفظ البيانات" HorizontalAlignment="Left" Margin="35,490,0,0" VerticalAlignment="Top" Click="SaveDetailsBtn_Click" Width="115" />
+        <TextBox Name="towerNameTxt" HorizontalAlignment="Left" Height="24" Margin="570,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextAlignment="Center" Width="120"/>
+        <Label Content="اختيار البرج" HorizontalAlignment="Left" Margin="715,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="الاسم الجديد" HorizontalAlignment="Left" Margin="700,107,0,0" VerticalAlignment="Top"/>
+        <Image Name="towerImg" HorizontalAlignment="Left" Height="243" Margin="468,166,0,0" VerticalAlignment="Top" Width="302"/>
+        <Label Content="البيانات الاساسية للوحدات" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="selectTowerImg" Content="اختيار صورة للبرج" HorizontalAlignment="Left" Margin="675,136,0,0" VerticalAlignment="Top" Click="SelectTowerImg_Click" />
     </Grid>
 </Window>

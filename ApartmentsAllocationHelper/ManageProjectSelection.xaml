@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="اختيار المشروع" Height="116" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="اختيار المشروع" Height="116" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid>
         <Button Name="showBtn" Content="عرض" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="30" Margin="20,10,0,0" IsEnabled="False" Click="ShowBtn_Click"/>
-        <ComboBox SelectionChanged="ProjectsComboBox_SelectionChanged" FlowDirection="RightToLeft" Name="projectsComboBox" HorizontalAlignment="Center"  Margin="125,10,99,0" VerticalAlignment="Top" Height="30"  Width="270"  SelectedValuePath="Id" DisplayMemberPath="ProjectName"/>
+        <ComboBox SelectionChanged="ProjectsComboBox_SelectionChanged" FlowDirection="RightToLeft" Name="projectsComboBox" HorizontalAlignment="Center"  Margin="275,10,99,0" VerticalAlignment="Top" Height="30"  Width="270"  SelectedValuePath="Id" DisplayMemberPath="ProjectName"/>
         <Label Content="اسم المشروع" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
         <ProgressBar Name="progressBar" Value="0" HorizontalAlignment="Stretch" Height="31" Margin="20,45,99,11" VerticalAlignment="Center"/>
+        <Button Name="projectDetailsBtn" IsEnabled="False" Content="تفاصيل المشروع" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Width="125" Height="30" Click="ProjectDetailsBtn_Click"/>
     </Grid>
 </Window>

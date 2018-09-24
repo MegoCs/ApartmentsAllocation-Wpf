@@ -45,6 +45,7 @@ namespace ApartmentsAllocationHelper
         private void ProjectDetailsLoaderAgent_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             showBtn.IsEnabled = true;
+            projectDetailsBtn.IsEnabled = true;
             progressBar.Value = 100;
         }
 
@@ -64,9 +65,16 @@ namespace ApartmentsAllocationHelper
         {
             if (projectsComboBox.SelectedValue != null) {
                 showBtn.IsEnabled = false;
+                projectDetailsBtn.IsEnabled = false;
                 projectDetailsLoaderAgent.RunWorkerAsync();
                 curId = projectsComboBox.SelectedValue.ToString();
             }
+        }
+
+        private void ProjectDetailsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SetTowerDetails tDetails = new SetTowerDetails(Tlist);
+            tDetails.ShowDialog();
         }
     }
 }

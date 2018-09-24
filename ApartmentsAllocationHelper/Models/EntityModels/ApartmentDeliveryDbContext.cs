@@ -26,7 +26,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ApartmentDeliveryDb;Integrated Security=True");
             }
         }
@@ -94,6 +94,10 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.Property(e => e.ApartmentArea).HasColumnType("decimal(4, 0)");
 
                 entity.Property(e => e.ApartmentImage).HasColumnType("image");
+
+                entity.Property(e => e.TagName).HasMaxLength(25);
+
+                entity.Property(e => e.TagNumber).HasColumnType("decimal(4, 0)");
 
                 entity.Property(e => e.TowerId)
                     .IsRequired()
