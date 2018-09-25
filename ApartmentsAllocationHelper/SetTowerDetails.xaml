@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="SetTowerDetails" Height="auto" Width="auto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="اضافة تفاصيل البرج" Height="auto" Width="auto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
@@ -25,11 +25,11 @@
 
         <Button Grid.Column="1" x:Name="selectTowerImg" Content="اختيار صورة للبرج" Margin="0,100,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="SelectTowerImg_Click" FontSize="20" />
         <Button Grid.Column="1" x:Name="deleteTowerBtn" Content="مسح بيانات البرج" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="DeleteTowerBtn_Click" FontSize="20" />
-        <Image Grid.Column="1" Grid.Row="1" Name="towerImg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
+        <Image Grid.Column="1" Grid.Row="1" Name="towerImg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
 
 
         <Label Grid.Column="0" Content="البيانات الاساسية للوحدات" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" FontSize="20"/>
-        <ListView Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40" Height="auto" BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" >
+        <ListView Grid.Column="0" FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40" Height="auto" BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -44,11 +44,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label  Grid.Column="0" Content="المساحة" HorizontalAlignment="Right" Margin="0,120,10,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox Grid.Column="0" Name="typeAreaTxt" HorizontalAlignment="Right" Margin="0,120,100,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Center" Width="60" FontSize="20"/>
-        <Image Grid.Column="0" Grid.Row="1" Name="curTypeImg"  HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <Button Grid.Column="0" Name="selectImg" Content="اختيار صورة موحدة" HorizontalAlignment="Right" Margin="0,160,10,0" VerticalAlignment="Top" Click="SelectImg_Click" FontSize="20" />
-        <Button Grid.Column="0" Name="saveDetailsBtn" Content="حفظ" HorizontalAlignment="Right" Margin="0,160,200,0" VerticalAlignment="Top" Click="SaveDetailsBtn_Click" FontSize="20" />
+        <Label  Grid.Column="0" Content="المساحة" HorizontalAlignment="Right" Margin="10,20,10,10" VerticalAlignment="Bottom" FontSize="20"/>
+        <TextBox Grid.Column="0" Name="typeAreaTxt" HorizontalAlignment="Right" Margin="10,20,100,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" TextAlignment="Center" Width="60" FontSize="20"/>
+        <Image Grid.Column="0" Grid.Row="1" Name="curTypeImg"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,20,10,10" />
+        <Button Grid.Column="0" Name="selectImg" Content="اختيار صورة" HorizontalAlignment="Center" Margin="10,20,80,10" VerticalAlignment="Bottom" Click="SelectImg_Click" FontSize="20" />
+        <Button Grid.Column="0" Name="saveDetailsBtn" Content="حفظ" HorizontalAlignment="Left" Margin="40,20,200,10" VerticalAlignment="Bottom" Click="SaveDetailsBtn_Click" FontSize="20" />
 
 
     </Grid>

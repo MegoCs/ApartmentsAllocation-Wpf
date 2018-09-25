@@ -37,16 +37,16 @@
             this.addTowersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsWithDoneOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.apartsWithNoneOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.clientReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientDataViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addClientDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.addClientDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cancelOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,14 +78,14 @@
             // 
             this.manageProjectToolStripMenuItem.Enabled = false;
             this.manageProjectToolStripMenuItem.Name = "manageProjectToolStripMenuItem";
-            this.manageProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.manageProjectToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.manageProjectToolStripMenuItem.Text = "ادارة مشروع";
             this.manageProjectToolStripMenuItem.Click += new System.EventHandler(this.ManageProjectToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(155, 6);
             // 
             // اضافةمشروعجديدToolStripMenuItem
             // 
@@ -93,7 +93,7 @@
             this.addProjectToolStripMenuItem,
             this.addTowersToolStripMenuItem});
             this.اضافةمشروعجديدToolStripMenuItem.Name = "اضافةمشروعجديدToolStripMenuItem";
-            this.اضافةمشروعجديدToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.اضافةمشروعجديدToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.اضافةمشروعجديدToolStripMenuItem.Text = "مشروع جديد";
             // 
             // addProjectToolStripMenuItem
@@ -128,11 +128,21 @@
             this.clientsWithDoneOccupationToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.clientsWithDoneOccupationToolStripMenuItem.Text = "العملاء المخصص لهم وحدات";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
+            // 
             // apartsWithNoneOccupationToolStripMenuItem
             // 
             this.apartsWithNoneOccupationToolStripMenuItem.Name = "apartsWithNoneOccupationToolStripMenuItem";
             this.apartsWithNoneOccupationToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.apartsWithNoneOccupationToolStripMenuItem.Text = "الوحدات الغير مخصصة";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(262, 6);
             // 
             // clientReportToolStripMenuItem
             // 
@@ -159,6 +169,11 @@
             this.clientDataViewToolStripMenuItem1.Text = "بيانات العملاء";
             this.clientDataViewToolStripMenuItem1.Click += new System.EventHandler(this.ClientDataViewToolStripMenuItem1_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(249, 6);
+            // 
             // addClientDataToolStripMenuItem
             // 
             this.addClientDataToolStripMenuItem.Name = "addClientDataToolStripMenuItem";
@@ -166,32 +181,17 @@
             this.addClientDataToolStripMenuItem.Text = "ادراج بيانات العملاء الجدد";
             this.addClientDataToolStripMenuItem.Click += new System.EventHandler(this.AddClientDataToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(249, 6);
+            // 
             // cancelOccupationToolStripMenuItem
             // 
             this.cancelOccupationToolStripMenuItem.Name = "cancelOccupationToolStripMenuItem";
             this.cancelOccupationToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.cancelOccupationToolStripMenuItem.Text = "الغاء حجز او تخصيص عميل";
             this.cancelOccupationToolStripMenuItem.Click += new System.EventHandler(this.CancelOccupationToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(262, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(249, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(249, 6);
             // 
             // MainForm
             // 
