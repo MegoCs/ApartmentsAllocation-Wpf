@@ -125,5 +125,17 @@ namespace ApartmentsAllocationHelper
                 apartmentTypesListview.ItemsSource = apartsList;
             }
         }
+
+        private void DeleteTowerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (curTower != null) {
+                using (_dbcontext = new ApartmentDeliveryDbContext())
+                {
+                    _dbcontext.Towers.Remove(curTower);
+                    _dbcontext.Floors.RemoveRange(_dbcontext.Floors.Where(x => x.TowerId == curTower.Id));
+                    _dbcontext.SaveChanges();
+                }
+            }
+        }
     }
 }

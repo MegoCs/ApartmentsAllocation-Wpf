@@ -1,0 +1,33 @@
+﻿<Window x:Class="ApartmentsAllocationHelper.ClientsViewGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApartmentsAllocationHelper"
+        mc:Ignorable="d"
+        Title="بيانات العملاء" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Label HorizontalAlignment="Left"  Content="الاسم" Height="40" Margin="20" FontSize="16" FontWeight="Bold"/>
+            <TextBox Name="clientNameTxt" HorizontalAlignment="Left" Width="200" TextAlignment="Center" Height="35" Margin="20" Text="" FontSize="16" FontWeight="Bold" />
+
+            <Label HorizontalAlignment="Left"  Content="الرقم القومي" Height="40" Margin="20" FontSize="16" FontWeight="Bold"/>
+            <TextBox Name="clientNationalTxt" HorizontalAlignment="Left" Width="200" TextAlignment="Center" Height="35" Margin="20" Text="" FontSize="16" FontWeight="Bold" />
+            <Button Name="searchBtn" Content="بحث" Height="40" Width="60" FontSize="18" FontWeight="Bold" Click="SearchBtn_Click"/>
+        </StackPanel>
+
+        <DataGrid CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" SelectionUnit="Cell" AutoGenerateColumns="False"  AlternatingRowBackground="Gainsboro"  AlternationCount="2"  Name="clientsDataView" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" VerticalAlignment="Stretch" ItemsSource="{Binding clientsList}" FontSize="16" FontWeight="Bold" Background="#FFE8DDDD">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="الاسم" Width="auto" Binding="{Binding ClientName}"/>
+                <DataGridTextColumn Header="الرقم القومي" Width="auto" Binding="{Binding NationalId}"/>
+                <DataGridTextColumn Header="التليفون" Width="auto" Binding="{Binding NationalId}"/>
+                <DataGridTextColumn Header="العنوان" Width="auto" Binding="{Binding ClientAddress}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

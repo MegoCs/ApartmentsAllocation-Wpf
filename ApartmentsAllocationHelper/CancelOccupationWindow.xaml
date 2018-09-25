@@ -1,0 +1,14 @@
+﻿<Window x:Class="ApartmentsAllocationHelper.CancelOccupationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApartmentsAllocationHelper"
+        mc:Ignorable="d"
+        Title="الغاء حجز وحدة" Height="100" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+    <Grid>
+        <TextBox Name="clientNationalTxt" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center" Height="30"  Width="270"/>
+        <Label Content="الرقم القومي للعميل" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Center"/>
+        <Button Name="confirmDeleteBtn" Content="تأكيد  عملية الغاء الحجز" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Center" Click="ConfirmDeleteBtn_Click"/>
+    </Grid>
+</Window>

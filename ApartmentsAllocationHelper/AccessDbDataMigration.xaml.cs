@@ -73,12 +73,14 @@ namespace ApartmentsAllocationHelper
                         Id = Guid.NewGuid().ToString(),
                         ClientName = dbHandler.myReader["client_name"].ToString(),
                         NationalId = dbHandler.myReader["national_id"].ToString(),
-                        PhoneNumber = dbHandler.myReader["phone_number"].ToString()
+                        PhoneNumber = dbHandler.myReader["phone_number"].ToString(),
+                        ClientAddress= dbHandler.myReader["address"].ToString()
                     });
                 }
                 float progress = ((currentChecked + 1) * 100) / clientsNum;
                 MigrationSlientWorker.ReportProgress(Convert.ToInt32(progress));
             }
+            dbHandler.myConnection.Close();
             _dbContext.SaveChanges();
         }
         private void SelectDbFileBtn_Click(object sender, RoutedEventArgs e)

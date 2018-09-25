@@ -65,5 +65,17 @@ namespace ApartmentsAllocationHelper
             AddTowersToProjectWindow obj = new AddTowersToProjectWindow();
                 obj.ShowDialog();
         }
+
+        private void CancelOccupationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CancelOccupationWindow cancelWin = new CancelOccupationWindow();
+            cancelWin.ShowDialog();
+        }
+
+        private void ClientDataViewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClientsViewGrid view = new ClientsViewGrid();
+            view.ShowDialog();
+        }
     }
 }

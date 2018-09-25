@@ -26,7 +26,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ApartmentDeliveryDb;Integrated Security=True");
             }
         }
@@ -44,7 +44,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .IsRequired()
                     .HasMaxLength(30);
 
-                entity.Property(e => e.ApartmentNumber).HasColumnType("decimal(4, 0)");
+                entity.Property(e => e.ApartmentNumber).HasColumnType("decimal(5, 0)");
 
                 entity.Property(e => e.ClientId)
                     .HasColumnName("ClientID")
@@ -74,13 +74,11 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.HasOne(d => d.Floor)
                     .WithMany(p => p.Apartments)
                     .HasForeignKey(d => d.FloorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Apartments_fk2");
 
                 entity.HasOne(d => d.Type)
                     .WithMany(p => p.Apartments)
                     .HasForeignKey(d => d.TypeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Apartments_fk0");
             });
 
@@ -95,9 +93,11 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
 
                 entity.Property(e => e.ApartmentImage).HasColumnType("image");
 
-                entity.Property(e => e.TagName).HasMaxLength(25);
+                entity.Property(e => e.TagName)
+                    .IsRequired()
+                    .HasMaxLength(25);
 
-                entity.Property(e => e.TagNumber).HasColumnType("decimal(4, 0)");
+                entity.Property(e => e.TagNumber).HasColumnType("decimal(5, 0)");
 
                 entity.Property(e => e.TowerId)
                     .IsRequired()
@@ -107,7 +107,6 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.HasOne(d => d.Tower)
                     .WithMany(p => p.ApartmentTypesPerTower)
                     .HasForeignKey(d => d.TowerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("ApartmentTypesPerTower_fk0");
             });
 
@@ -117,6 +116,8 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .HasColumnName("ID")
                     .HasMaxLength(50)
                     .ValueGeneratedNever();
+
+                entity.Property(e => e.ClientAddress).HasMaxLength(500);
 
                 entity.Property(e => e.ClientName)
                     .IsRequired()
@@ -158,7 +159,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
             modelBuilder.Entity<Projects>(entity =>
             {
                 entity.HasIndex(e => e.ProjectName)
-                    .HasName("UQ__Projects__0BBE21386551311C")
+                    .HasName("UQ__Projects__0BBE213867902950")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -175,7 +176,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
             modelBuilder.Entity<Towers>(entity =>
             {
                 entity.HasIndex(e => e.TowerName)
-                    .HasName("UQ__Towers__D8B986840B2CEDEE")
+                    .HasName("UQ__Towers__D8B98684258E39BE")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -201,7 +202,6 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.HasOne(d => d.Project)
                     .WithMany(p => p.Towers)
                     .HasForeignKey(d => d.ProjectId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Towers_fk0");
             });
         }

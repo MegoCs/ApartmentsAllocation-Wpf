@@ -14,6 +14,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         public string ClientName { get; set; }
         public string PhoneNumber { get; set; }
         public string NationalId { get; set; }
+        public string ClientAddress { get; set; }
 
         public ICollection<Apartments> Apartments { get; set; }
     }
