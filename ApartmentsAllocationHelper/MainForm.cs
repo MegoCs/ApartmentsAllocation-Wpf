@@ -77,5 +77,11 @@ namespace ApartmentsAllocationHelper
             ClientsViewGrid view = new ClientsViewGrid();
             view.ShowDialog();
         }
+
+        private void clientsWithDoneOccupationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientsAndUnitsReportForm rform = new ClientsAndUnitsReportForm();
+            rform.ShowDialog();
+        }
     }
 }
