@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.51823in</Width>
+              <Width>1.17187in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.72656in</Width>
+              <Width>1.33593in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.33594in</Width>
+              <Width>1.82292in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.47656in</Width>
+              <Width>2.20051in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -318,10 +318,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.155in</Top>
-        <Left>0.54562in</Left>
+        <Top>0.22792in</Top>
+        <Left>0.86854in</Left>
         <Height>0.5in</Height>
-        <Width>7.05729in</Width>
+        <Width>6.53125in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -329,7 +329,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.32292in</Height>
+    <Height>5.15625in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
@@ -337,10 +337,10 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.03in</Width>
+  <Width>7.97792in</Width>
   <Page>
     <PageHeader>
-      <Height>1.47889in</Height>
+      <Height>1.17681in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -365,7 +365,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
           <Top>0.23833in</Top>
-          <Left>3.13417in</Left>
+          <Left>2.93104in</Left>
           <Height>0.39583in</Height>
           <Width>4.46875in</Width>
           <Style>
@@ -384,8 +384,8 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.04042in</Top>
           <Left>0.24875in</Left>
-          <Height>1.43847in</Height>
-          <Width>1in</Width>
+          <Height>1.01735in</Height>
+          <Width>0.79167in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -408,13 +408,13 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>0.94667in</Top>
-          <Left>2.89458in</Left>
+          <Top>0.7036in</Top>
+          <Left>3.87113in</Left>
           <Height>0.35417in</Height>
           <Width>2.05208in</Width>
           <ZIndex>2</ZIndex>
@@ -435,7 +435,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>برج</Value>
+                  <Value>: اسم البرج</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -448,10 +448,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>0.94667in</Top>
-          <Left>5.30083in</Left>
+          <Top>0.7036in</Top>
+          <Left>6.13416in</Left>
           <Height>0.35417in</Height>
-          <Width>0.71875in</Width>
+          <Width>1.15625in</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -555,10 +555,10 @@
     </PageFooter>
     <PageHeight>11.69in</PageHeight>
     <PageWidth>8.27in</PageWidth>
-    <LeftMargin>2in</LeftMargin>
-    <RightMargin>2in</RightMargin>
-    <TopMargin>2in</TopMargin>
-    <BottomMargin>2in</BottomMargin>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.25in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

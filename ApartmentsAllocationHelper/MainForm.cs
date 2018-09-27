@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApartmentsAllocationHelper
 {
@@ -32,12 +33,13 @@ namespace ApartmentsAllocationHelper
         private void ProjectLoaderAgent_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             manageProjectToolStripMenuItem.Enabled = true;
+            clientsWithDoneOccupationToolStripMenuItem.Enabled = true;
         }
 
         private void ProjectLoaderAgent_DoWork(object sender, DoWorkEventArgs e)
         {
             _dbContext = new ApartmentDeliveryDbContext();
-            pList = _dbContext.Projects.ToList();
+            pList = _dbContext.Projects.Include(x=>x.Towers).ToList();
         }
 
         private void ManageProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace ApartmentsAllocationHelper
 
         private void clientsWithDoneOccupationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClientsAndUnitsReportForm rform = new ClientsAndUnitsReportForm();
+            ClientsAndUnitsReportForm rform = new ClientsAndUnitsReportForm(pList);
             rform.ShowDialog();
         }
     }

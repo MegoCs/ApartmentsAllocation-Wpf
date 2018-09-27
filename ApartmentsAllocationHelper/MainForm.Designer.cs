@@ -124,6 +124,7 @@
             // 
             // clientsWithDoneOccupationToolStripMenuItem
             // 
+            this.clientsWithDoneOccupationToolStripMenuItem.Enabled = false;
             this.clientsWithDoneOccupationToolStripMenuItem.Name = "clientsWithDoneOccupationToolStripMenuItem";
             this.clientsWithDoneOccupationToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.clientsWithDoneOccupationToolStripMenuItem.Text = "العملاء المخصص لهم وحدات";
