@@ -84,7 +84,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Image Name="ApartmentImg" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,20,10,20" />
+                <Image Name="ApartmentImg" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="10,20,10,20" />
             </StackPanel>
         </Border>
 

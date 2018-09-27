@@ -100,6 +100,9 @@ namespace ApartmentsAllocationHelper
                         bitmapImg.EndInit();
                         ApartmentImg.Source = bitmapImg;
                     }
+                    else {
+                        ApartmentImg.Source = null;
+                    }
                 }
             }
             catch (Exception ex)
