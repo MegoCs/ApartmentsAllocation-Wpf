@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="الغاء حجز وحدة" Height="100" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="الغاء حجز وحدة" Height="100" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Assets/12.ico" >
     <Grid>
         <TextBox Name="clientNationalTxt" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center" Height="30"  Width="270"/>
         <Label Content="الرقم القومي للعميل" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Center"/>

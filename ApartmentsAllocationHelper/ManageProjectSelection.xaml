@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="اختيار المشروع" Height="116" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="اختيار المشروع" Height="116" Width="650" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Assets/12.ico" >
     <Grid>
         <Button Name="showBtn" Content="عرض" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" Height="30" Margin="20,10,0,0" IsEnabled="False" Click="ShowBtn_Click"/>
         <ComboBox SelectionChanged="ProjectsComboBox_SelectionChanged" FlowDirection="RightToLeft" Name="projectsComboBox" HorizontalAlignment="Center"  Margin="275,10,99,0" VerticalAlignment="Top" Height="30"  Width="270"  SelectedValuePath="Id" DisplayMemberPath="ProjectName"/>

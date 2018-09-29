@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="بيانات العملاء" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="بيانات العملاء" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Assets/12.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

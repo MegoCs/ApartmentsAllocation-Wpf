@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="اضافة تفاصيل البرج" Height="auto" Width="auto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        Title="اضافة تفاصيل البرج" Height="auto" Width="auto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Icon="Assets/12.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

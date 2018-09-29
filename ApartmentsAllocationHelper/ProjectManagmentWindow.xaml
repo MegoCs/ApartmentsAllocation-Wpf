@@ -7,7 +7,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
        
         mc:Ignorable="d"
-        Title="ادارة و تخصيص الوحدات" WindowState="Maximized" WindowStartupLocation="CenterOwner">
+        Title="ادارة و تخصيص الوحدات" WindowState="Maximized" WindowStartupLocation="CenterOwner" Icon="Assets/12.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="2" Margin="0,5,0,5" CornerRadius="30" BorderBrush="Gray" Background="#FFF5F3F3" BorderThickness="4">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,20,20,0">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="20,20,20,0">
                 <TextBlock Text="الابراج المدرجة في المشروع" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" TextDecorations="Underline"/>
                 <ListView BorderThickness="0" SelectionChanged="TowersList_SelectionChanged" Name="TowersList" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Background="Transparent" >
                     <ListView.ItemsPanel>
@@ -34,7 +34,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <TextBlock FontSize="20" Text="توزيع الشقق داخل الدور المتكرر" Margin="0,40,0,20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold"/>
-                <Image Name="TowerDesignImg" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <Image Name="TowerDesignImg" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0,0,0,10"/>
             </StackPanel>
         </Border>
         <Border Grid.Column="1" Margin="10,5,10,5" CornerRadius="30" BorderBrush="Gray" Background="#FFF5F3F3" BorderThickness="4">

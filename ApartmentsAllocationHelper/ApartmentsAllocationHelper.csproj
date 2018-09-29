@@ -175,6 +175,9 @@
     <Compile Include="ClientsViewGrid.xaml.cs">
       <DependentUpon>ClientsViewGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ManualPage.xaml.cs">
+      <DependentUpon>ManualPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SetTowerDetails.xaml.cs">
       <DependentUpon>SetTowerDetails.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManageProjectSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManualPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -313,6 +320,7 @@
     <Resource Include="Assets\12.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\12.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

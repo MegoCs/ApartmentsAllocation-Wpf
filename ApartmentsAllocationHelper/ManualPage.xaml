@@ -1,0 +1,31 @@
+﻿<Window x:Class="ApartmentsAllocationHelper.ManualPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApartmentsAllocationHelper"
+        mc:Ignorable="d"
+        Title="ManualPage" Height="171" Width="378" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Margin="10" Grid.Column="1" Grid.Row="0" Content="1-" FlowDirection="RightToLeft"/>
+        <Label Margin="10" Grid.Column="1" Grid.Row="1" Content="2-" FlowDirection="RightToLeft"/>
+        <Label Margin="10" Grid.Column="1" Grid.Row="2" Content="3-" FlowDirection="RightToLeft"/>
+
+        <TextBlock Margin="10" Grid.Column="0" Grid.Row="0" Text="يتم اضافة مشروع تخصيص جديد من قائمة المشورعات " Width="auto" TextAlignment="Right"/>
+        <TextBlock Margin="10" Grid.Column="0" Grid.Row="1" Text="يتم اضافة الابراج الى المشروع واحد تلو الاخر" TextAlignment="Right"/>
+        <TextBlock Margin="10" Grid.Column="0" Grid.Row="2" Text="يتم اضافة و تعديل تفاصيل المساحات و الصور الخاصة لكل برج" TextAlignment="Right"/>
+
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-          Title="اضافة برج الى مشروع" Height="355" Width="613" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+          Title="اضافة برج الى مشروع" Height="355" Width="613" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Assets/12.ico">
     <Grid Width="auto" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

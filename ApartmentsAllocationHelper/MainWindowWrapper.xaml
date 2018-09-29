@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FlowDirection="RightToLeft">
+        Title="MainWindow" Height="450" Width="800" FlowDirection="RightToLeft" Icon="Assets/12.ico">
     <Grid>
         
     </Grid>

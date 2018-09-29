@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsAndUnitsReportForm));
             this.ClientsAndTheirUnitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClientsAndUnits = new ApartmentsAllocationHelper.ClientsAndUnits();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientsAndUnitsReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تقرير العملاء الذي تم لهم تخصيص";

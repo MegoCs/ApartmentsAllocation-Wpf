@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="ادراج بيانات عملاء من برنامج الادارة" Height="250" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontSize="16" FontWeight="Bold">
+        Title="ادراج بيانات عملاء من برنامج الادارة" Height="250" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontSize="16" FontWeight="Bold" Icon="Assets/12.ico">
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel Margin="10" Width="300" Height="auto" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Name="selectDbFileBtn" Margin="10" Content="اختيار ملف البيانات" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Click="SelectDbFileBtn_Click" />

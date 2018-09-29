@@ -85,5 +85,11 @@ namespace ApartmentsAllocationHelper
             ClientsAndUnitsReportForm rform = new ClientsAndUnitsReportForm(pList);
             rform.ShowDialog();
         }
+
+        private void ManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManualPage page = new ManualPage();
+            page.ShowDialog();
+        }
     }
 }
