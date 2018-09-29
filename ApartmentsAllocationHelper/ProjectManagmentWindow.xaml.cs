@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,85 +26,38 @@ namespace ApartmentsAllocationHelper
         private ApartmentDeliveryDbContext _dbContext;
         Apartments curApart;
         Towers curTower;
-        Floors curFloor;
-
         public ProjectManagmentWindow(List<Towers>  Tlist)
         {
             InitializeComponent();
             _dbContext = new ApartmentDeliveryDbContext();
             TowersList.ItemsSource = Tlist;
+
+
         }
 
         private void TowersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                ApartmentsList.ItemsSource = null;
                 ApartmentImg.Source = null;
                 curTower = TowersList.SelectedItem as Towers;
-                FloorsList.ItemsSource = curTower.Floors.OrderBy(x => x.FloorNo);
-                if (curTower.TowerImage != null)
-                {
-                    var ms = new MemoryStream(curTower.TowerImage);
-                    var bitmapImg = new BitmapImage();
-                    bitmapImg.BeginInit();
-                    bitmapImg.StreamSource = ms;
-                    bitmapImg.EndInit();
-                    TowerDesignImg.Source = bitmapImg;
-                }
-                else
-                {
-                    TowerDesignImg.Source = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+                
+                ApartmentsWithDetailsList.ItemsSource=_dbContext.Apartments
+                                     .Include(A => A.Floor)
+                                     .Include(A => A.Client)
+                                     .Include(A => A.Type)
+                                     .ThenInclude(T => T.Tower)
+                                     .Where(A=>A.Type.TowerId==curTower.Id)
+                                     .OrderBy(A=>A.Floor.FloorNo)
+                                     .ThenByDescending(A=>A.ApartmentNumber)
+                                     .ToList();
+                ApartmentsWithDetailsList.Height = (this.Height / 5) * 4;
 
-        private void FloorsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                ApartmentImg.Source = null;
-                curFloor = FloorsList.SelectedItem as Floors;
-                if (curFloor != null)
-                {
-                    var Alist = _dbContext.Apartments.Include(x => x.Type).Where(x => x.FloorId == curFloor.Id).OrderByDescending(x => x.ApartmentNumber);
-                    ApartmentsList.ItemsSource = Alist.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
-        private void ApartmentsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                curApart = ApartmentsList.SelectedItem as Apartments;
-                if (curApart != null)
-                {
-                    if (curApart.OccupationStatus == "DONE")
-                        OccupayApartment.IsEnabled = false;
-                    else OccupayApartment.IsEnabled = true;
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
+                PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
+                view.GroupDescriptions.Add(groupDescription);
 
-                    if (curApart.Type.ApartmentImage != null)
-                    {
-                        var ms = new MemoryStream(curApart.Type.ApartmentImage);
-                        var bitmapImg = new BitmapImage();
-                        bitmapImg.BeginInit();
-                        bitmapImg.StreamSource = ms;
-                        bitmapImg.EndInit();
-                        ApartmentImg.Source = bitmapImg;
-                    }
-                    else {
-                        ApartmentImg.Source = null;
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -113,11 +67,39 @@ namespace ApartmentsAllocationHelper
 
         private void OccupayApartment_Click(object sender, RoutedEventArgs e)
         {
-            if (curApart != null && curFloor != null && curTower != null) {
-                OccupationWindow occ = new OccupationWindow(curApart,curFloor,curTower);
+            if (curApart != null && curTower != null) {
+                OccupationWindow occ = new OccupationWindow(curApart);
                 occ.ShowDialog();
-                FloorsList_SelectionChanged(null, null);
             }
+        }
+
+        private void ApartmentsWithDetailsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ApartmentsWithDetailsList.SelectedItem != null) {
+                curApart = ApartmentsWithDetailsList.SelectedItem as Apartments;
+                curApartAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
+                if (curApart.Client != null)
+                    curApartClientTxt.Text = curApart.Client.ClientName;
+                else
+                    curApartClientTxt.Text = "";
+            }
+            if (curApart.Type.ApartmentImage != null)
+            {
+                var ms = new MemoryStream(curApart.Type.ApartmentImage);
+                var bitmapImg = new BitmapImage();
+                bitmapImg.BeginInit();
+                bitmapImg.StreamSource = ms;
+                bitmapImg.EndInit();
+                ApartmentImg.Source = bitmapImg;
+            }
+            else
+                ApartmentImg.Source = null;
+
+            if (curApart.OccupationStatus == "NONE")
+                OccupayApartment.IsEnabled = true;
+            else
+                OccupayApartment.IsEnabled = false;
+
         }
     }
 }

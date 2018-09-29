@@ -21,22 +21,18 @@ namespace ApartmentsAllocationHelper
     public partial class OccupationWindow : Window
     {
         Apartments _curApart;
-        Floors _curFloor;
-        Towers _curTower;
         Clients _curClient;
         ApartmentDeliveryDbContext _dbContext;
-        public OccupationWindow(Apartments curApart,Floors curFloor,Towers curTower)
+        public OccupationWindow(Apartments curApart)
         {
             InitializeComponent();
             #region Load Data And Put on form
             _curApart = curApart;
-            _curFloor = curFloor;
-            _curTower = curTower;
 
-            towerNameTxt.Text = _curTower.TowerName;
-            floorNumTxt.Text = _curFloor.FloorNo.ToString();
+            towerNameTxt.Text = _curApart.Type.Tower.TowerName;
             apartmentNameTxt.Text = _curApart.ApartmentName;
             apartmentAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
+            floorNumTxt.Text = _curApart.Floor.FloorNo.ToString();
             #endregion
         }
 
