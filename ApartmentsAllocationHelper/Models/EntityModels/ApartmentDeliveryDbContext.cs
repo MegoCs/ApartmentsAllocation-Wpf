@@ -19,6 +19,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         public virtual DbSet<ApartmentTypesPerTower> ApartmentTypesPerTower { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<Floors> Floors { get; set; }
+        public virtual DbSet<LoginDetails> LoginDetails { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<Towers> Towers { get; set; }
 
@@ -69,6 +70,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.Apartments)
                     .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Apartments_fk1");
 
                 entity.HasOne(d => d.Floor)
@@ -92,6 +94,8 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                 entity.Property(e => e.ApartmentArea).HasColumnType("decimal(4, 0)");
 
                 entity.Property(e => e.ApartmentImage).HasColumnType("image");
+
+                entity.Property(e => e.SizeTag).HasMaxLength(5);
 
                 entity.Property(e => e.TagName)
                     .IsRequired()
@@ -156,10 +160,28 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .HasConstraintName("Floors_fk0");
             });
 
+            modelBuilder.Entity<LoginDetails>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasMaxLength(50)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasColumnName("userName")
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.UserPassword)
+                    .IsRequired()
+                    .HasColumnName("userPassword")
+                    .HasMaxLength(30);
+            });
+
             modelBuilder.Entity<Projects>(entity =>
             {
                 entity.HasIndex(e => e.ProjectName)
-                    .HasName("UQ__Projects__0BBE213867902950")
+                    .HasName("UQ__Projects__0BBE2138951330CC")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -171,12 +193,14 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .IsRequired()
                     .HasColumnName("Project_Name")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.WarningMessage).HasMaxLength(1000);
             });
 
             modelBuilder.Entity<Towers>(entity =>
             {
                 entity.HasIndex(e => e.TowerName)
-                    .HasName("UQ__Towers__D8B98684258E39BE")
+                    .HasName("UQ__Towers__D8B98684B842B1C0")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -194,6 +218,8 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .HasMaxLength(50);
 
                 entity.Property(e => e.TowerImage).HasColumnType("image");
+
+                entity.Property(e => e.TowerMessage).HasMaxLength(500);
 
                 entity.Property(e => e.TowerName)
                     .IsRequired()

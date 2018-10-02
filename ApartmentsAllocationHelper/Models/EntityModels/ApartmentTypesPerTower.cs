@@ -16,6 +16,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         public string TowerId { get; set; }
         public decimal TagNumber { get; set; }
         public string TagName { get; set; }
+        public string SizeTag { get; set; }
 
         public Towers Tower { get; set; }
         public ICollection<Apartments> Apartments { get; set; }

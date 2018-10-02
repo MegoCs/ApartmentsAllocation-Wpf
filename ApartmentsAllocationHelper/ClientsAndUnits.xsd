@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="ApartmentDeliveryDbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Floors.FloorNo, Apartments.OccupationDate, Apartments.ApartmentName, Clients.ClientName, Clients.NationalID, Clients.ClientAddress, Clients.PhoneNumber, Towers.TowerName, 
+                    <CommandText>SELECT        Towers.TowerMessage ,Floors.FloorNo, Apartments.OccupationDate, Apartments.ApartmentName, Clients.ClientName, Clients.NationalID, Clients.ClientAddress, Clients.PhoneNumber, Towers.TowerName, 
                          ApartmentTypesPerTower.ApartmentArea
 FROM            Apartments INNER JOIN
                          Floors ON Apartments.FloorID = Floors.ID INNER JOIN
@@ -39,6 +39,7 @@ order by FloorNo,ApartmentNumber
               <Mapping SourceColumn="PhoneNumber" DataSetColumn="PhoneNumber" />
               <Mapping SourceColumn="TowerName" DataSetColumn="TowerName" />
               <Mapping SourceColumn="ApartmentArea" DataSetColumn="ApartmentArea" />
+              <Mapping SourceColumn="TowerMessage" DataSetColumn="TowerMessage" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -50,7 +51,7 @@ order by FloorNo,ApartmentNumber
   <xs:element name="ClientsAndUnits" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ClientsAndUnits" msprop:Generator_UserDSName="ClientsAndUnits">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ClientsAndTheirUnits" msprop:Generator_TableClassName="ClientsAndTheirUnitsDataTable" msprop:Generator_TableVarName="tableClientsAndTheirUnits" msprop:Generator_TablePropName="ClientsAndTheirUnits" msprop:Generator_RowDeletingName="ClientsAndTheirUnitsRowDeleting" msprop:Generator_RowChangingName="ClientsAndTheirUnitsRowChanging" msprop:Generator_RowEvHandlerName="ClientsAndTheirUnitsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsAndTheirUnitsRowDeleted" msprop:Generator_UserTableName="ClientsAndTheirUnits" msprop:Generator_RowChangedName="ClientsAndTheirUnitsRowChanged" msprop:Generator_RowEvArgName="ClientsAndTheirUnitsRowChangeEvent" msprop:Generator_RowClassName="ClientsAndTheirUnitsRow">
+        <xs:element name="ClientsAndTheirUnits" msprop:Generator_TableClassName="ClientsAndTheirUnitsDataTable" msprop:Generator_TableVarName="tableClientsAndTheirUnits" msprop:Generator_RowChangedName="ClientsAndTheirUnitsRowChanged" msprop:Generator_TablePropName="ClientsAndTheirUnits" msprop:Generator_RowDeletingName="ClientsAndTheirUnitsRowDeleting" msprop:Generator_RowChangingName="ClientsAndTheirUnitsRowChanging" msprop:Generator_RowEvHandlerName="ClientsAndTheirUnitsRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientsAndTheirUnitsRowDeleted" msprop:Generator_RowClassName="ClientsAndTheirUnitsRow" msprop:Generator_UserTableName="ClientsAndTheirUnits" msprop:Generator_RowEvArgName="ClientsAndTheirUnitsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FloorNo" msprop:Generator_ColumnVarNameInTable="columnFloorNo" msprop:Generator_ColumnPropNameInRow="FloorNo" msprop:Generator_ColumnPropNameInTable="FloorNoColumn" msprop:Generator_UserColumnName="FloorNo" type="xs:decimal" />
@@ -98,6 +99,13 @@ order by FloorNo,ApartmentNumber
                 </xs:simpleType>
               </xs:element>
               <xs:element name="ApartmentArea" msprop:Generator_ColumnVarNameInTable="columnApartmentArea" msprop:Generator_ColumnPropNameInRow="ApartmentArea" msprop:Generator_ColumnPropNameInTable="ApartmentAreaColumn" msprop:Generator_UserColumnName="ApartmentArea" type="xs:decimal" />
+              <xs:element name="TowerMessage" msprop:Generator_ColumnVarNameInTable="columnTowerMessage" msprop:Generator_ColumnPropNameInRow="TowerMessage" msprop:Generator_ColumnPropNameInTable="TowerMessageColumn" msprop:Generator_UserColumnName="TowerMessage" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

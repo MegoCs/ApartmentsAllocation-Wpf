@@ -60,6 +60,7 @@ namespace ApartmentsAllocationHelper
             {
                 curTower.TowerName = towerNameTxt.Text;
                 curType.ApartmentArea = int.Parse(typeAreaTxt.Text);
+                curTower.TowerMessage = towerMessage.Text;
                 using (_dbcontext = new ApartmentDeliveryDbContext())
                 {
                     _dbcontext.ApartmentTypesPerTower.Update(curType);
@@ -68,6 +69,9 @@ namespace ApartmentsAllocationHelper
                     MessageBox.Show("تم حفظ البيانات");
                 }
             }
+            else
+                MessageBox.Show("برجاء اختيار البرج و الوحدات");
+
         }
 
         private void SelectImg_Click(object sender, RoutedEventArgs e)
@@ -108,6 +112,10 @@ namespace ApartmentsAllocationHelper
             {
                 curTower = towersCombo.SelectedItem as Towers;
                 towerNameTxt.Text = curTower.TowerName;
+                if (!string.IsNullOrEmpty(curTower.TowerMessage))
+                    towerMessage.Text = curTower.TowerMessage;
+                else
+                    towerMessage.Text = "";
 
                 if (curTower.TowerImage != null)
                 {

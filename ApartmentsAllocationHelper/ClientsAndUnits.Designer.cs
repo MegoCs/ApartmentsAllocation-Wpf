@@ -297,6 +297,8 @@ namespace ApartmentsAllocationHelper {
             
             private global::System.Data.DataColumn columnApartmentArea;
             
+            private global::System.Data.DataColumn columnTowerMessage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ClientsAndTheirUnitsDataTable() {
@@ -404,6 +406,14 @@ namespace ApartmentsAllocationHelper {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TowerMessageColumn {
+                get {
+                    return this.columnTowerMessage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace ApartmentsAllocationHelper {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ClientsAndTheirUnitsRow AddClientsAndTheirUnitsRow(decimal FloorNo, System.DateTime OccupationDate, string ApartmentName, string ClientName, string NationalID, string ClientAddress, string PhoneNumber, string TowerName, decimal ApartmentArea) {
+            public ClientsAndTheirUnitsRow AddClientsAndTheirUnitsRow(decimal FloorNo, System.DateTime OccupationDate, string ApartmentName, string ClientName, string NationalID, string ClientAddress, string PhoneNumber, string TowerName, decimal ApartmentArea, string TowerMessage) {
                 ClientsAndTheirUnitsRow rowClientsAndTheirUnitsRow = ((ClientsAndTheirUnitsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FloorNo,
@@ -450,7 +460,8 @@ namespace ApartmentsAllocationHelper {
                         ClientAddress,
                         PhoneNumber,
                         TowerName,
-                        ApartmentArea};
+                        ApartmentArea,
+                        TowerMessage};
                 rowClientsAndTheirUnitsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientsAndTheirUnitsRow);
                 return rowClientsAndTheirUnitsRow;
@@ -482,6 +493,7 @@ namespace ApartmentsAllocationHelper {
                 this.columnPhoneNumber = base.Columns["PhoneNumber"];
                 this.columnTowerName = base.Columns["TowerName"];
                 this.columnApartmentArea = base.Columns["ApartmentArea"];
+                this.columnTowerMessage = base.Columns["TowerMessage"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,6 +517,8 @@ namespace ApartmentsAllocationHelper {
                 base.Columns.Add(this.columnTowerName);
                 this.columnApartmentArea = new global::System.Data.DataColumn("ApartmentArea", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApartmentArea);
+                this.columnTowerMessage = new global::System.Data.DataColumn("TowerMessage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTowerMessage);
                 this.columnFloorNo.AllowDBNull = false;
                 this.columnApartmentName.AllowDBNull = false;
                 this.columnApartmentName.MaxLength = 30;
@@ -518,6 +532,7 @@ namespace ApartmentsAllocationHelper {
                 this.columnTowerName.AllowDBNull = false;
                 this.columnTowerName.MaxLength = 50;
                 this.columnApartmentArea.AllowDBNull = false;
+                this.columnTowerMessage.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -769,6 +784,22 @@ namespace ApartmentsAllocationHelper {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string TowerMessage {
+                get {
+                    try {
+                        return ((string)(this[this.tableClientsAndTheirUnits.TowerMessageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TowerMessage\' in table \'ClientsAndTheirUnits\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClientsAndTheirUnits.TowerMessageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsOccupationDateNull() {
                 return this.IsNull(this.tableClientsAndTheirUnits.OccupationDateColumn);
             }
@@ -789,6 +820,18 @@ namespace ApartmentsAllocationHelper {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetClientAddressNull() {
                 this[this.tableClientsAndTheirUnits.ClientAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTowerMessageNull() {
+                return this.IsNull(this.tableClientsAndTheirUnits.TowerMessageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTowerMessageNull() {
+                this[this.tableClientsAndTheirUnits.TowerMessageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -960,6 +1003,7 @@ namespace ApartmentsAllocationHelper.ClientsAndUnitsTableAdapters {
             tableMapping.ColumnMappings.Add("PhoneNumber", "PhoneNumber");
             tableMapping.ColumnMappings.Add("TowerName", "TowerName");
             tableMapping.ColumnMappings.Add("ApartmentArea", "ApartmentArea");
+            tableMapping.ColumnMappings.Add("TowerMessage", "TowerMessage");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -976,7 +1020,7 @@ namespace ApartmentsAllocationHelper.ClientsAndUnitsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Floors.FloorNo, Apartments.OccupationDate, Apartments.ApartmentName, Clients.ClientName, Clients.NationalID, Clients.ClientAddress, Clients.PhoneNumber, Towers.TowerName, 
+            this._commandCollection[0].CommandText = @"SELECT        Towers.TowerMessage ,Floors.FloorNo, Apartments.OccupationDate, Apartments.ApartmentName, Clients.ClientName, Clients.NationalID, Clients.ClientAddress, Clients.PhoneNumber, Towers.TowerName, 
                          ApartmentTypesPerTower.ApartmentArea
 FROM            Apartments INNER JOIN
                          Floors ON Apartments.FloorID = Floors.ID INNER JOIN

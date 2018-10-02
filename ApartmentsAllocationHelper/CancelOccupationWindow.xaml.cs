@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApartmentsAllocationHelper
 {
@@ -32,13 +33,25 @@ namespace ApartmentsAllocationHelper
             {
                 using (_dbcontext = new ApartmentDeliveryDbContext())
                 {
-                    var apart = _dbcontext.Apartments.Where(x => x.ClientId == clientNationalTxt.Text && x.OccupationStatus == "DONE").SingleOrDefault();
-                    apart.ClientId = null;
-                    apart.OccupationStatus = "NONE";
-                    _dbcontext.Update(apart);
-                    _dbcontext.SaveChanges();
-                    MessageBox.Show("تم الغاء تخصيص الوحدة");
-                    clientNationalTxt.Text = "";
+                    var client = _dbcontext.Clients.Where(C => C.NationalId == clientNationalTxt.Text).Include(x => x.Apartments).SingleOrDefault();
+
+                    if (client != null)
+                    {
+                        if (client.Apartments.Count > 0)
+                        {
+                            var apart = client.Apartments.ToList()[0];
+                            apart.ClientId = null;
+                            apart.OccupationStatus = "NONE";
+                            _dbcontext.Update(apart);
+                            _dbcontext.SaveChanges();
+                            MessageBox.Show("تم الغاء تخصيص الوحدة");
+                            clientNationalTxt.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("لا توجد غرفة محجوزة لهذا الرقم");
+                    }
                 }
             }
             else {

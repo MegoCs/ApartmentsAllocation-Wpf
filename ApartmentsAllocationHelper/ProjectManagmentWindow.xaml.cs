@@ -70,6 +70,8 @@ namespace ApartmentsAllocationHelper
             if (curApart != null && curTower != null) {
                 OccupationWindow occ = new OccupationWindow(curApart);
                 occ.ShowDialog();
+                TowersList_SelectionChanged(null,null);
+                ApartmentsWithDetailsList_SelectionChanged(null, null);
             }
         }
 

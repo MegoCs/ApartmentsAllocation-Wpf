@@ -17,6 +17,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         public decimal FloorsNumber { get; set; }
         public decimal ApartmentsPerFloor { get; set; }
         public byte[] TowerImage { get; set; }
+        public string TowerMessage { get; set; }
 
         public Projects Project { get; set; }
         public ICollection<ApartmentTypesPerTower> ApartmentTypesPerTower { get; set; }

@@ -12,6 +12,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
 
         public string Id { get; set; }
         public string ProjectName { get; set; }
+        public string WarningMessage { get; set; }
 
         public ICollection<Towers> Towers { get; set; }
     }

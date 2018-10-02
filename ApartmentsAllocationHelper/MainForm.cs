@@ -80,7 +80,7 @@ namespace ApartmentsAllocationHelper
             view.ShowDialog();
         }
 
-        private void clientsWithDoneOccupationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClientsWithDoneOccupationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClientsAndUnitsReportForm rform = new ClientsAndUnitsReportForm(pList);
             rform.ShowDialog();
