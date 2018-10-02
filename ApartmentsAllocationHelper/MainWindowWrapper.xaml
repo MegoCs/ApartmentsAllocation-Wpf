@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApartmentsAllocationHelper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FlowDirection="RightToLeft" Icon="Assets/12.ico">
-    <Grid>
-        
+        Title="صفحة الدخول" Height="250" Width="450" FlowDirection="RightToLeft" Icon="Assets/12.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" FontWeight="Bold">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="auto">
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Margin="5" Text="اسم المستخدم" FontSize="20" Width="120" Height="30"/>
+                <TextBox Margin="5" Text="Admin" IsEnabled="False" FontSize="20"  Width="150" TextAlignment="Center" Height="30"/>
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Name="passTxt" Margin="5" Text="كلمة المرور" FontSize="20"  Width="120" Height="30"/>
+                <PasswordBox  Margin="5" FontSize="20" PasswordChar="*" Width="150" Height="30"/>
+            </StackPanel>
+            <Button Name="LoginBtn" Margin="5" Content="دخول" Click="LoginBtn_Click" FontSize="20"/>
+        </StackPanel>
     </Grid>
 </Window>

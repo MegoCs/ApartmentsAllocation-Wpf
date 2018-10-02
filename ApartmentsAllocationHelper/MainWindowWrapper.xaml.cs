@@ -25,31 +25,32 @@ namespace ApartmentsAllocationHelper
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                MainForm mainForm = new MainForm();
-                this.Hide();
-                mainForm.ShowDialog();
-
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
-            }
         }
-        private bool CheckPassword (string pass){
+        
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LoginBtn.IsEnabled = false;
             try
             {
                 using (_dbContext = new ApartmentDeliveryDbContext())
                 {
-                    return _dbContext.LoginDetails.Any(x => x.UserPassword == pass);
+                    if (_dbContext.LoginDetails.Any(x => x.UserPassword == passTxt.Text))
+                    {
+                        MainForm mainForm = new MainForm();
+                        this.Hide();
+                        mainForm.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("خطأ في البيانات");
+                        LoginBtn.IsEnabled = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
-                return false;
             }
         }
     }
