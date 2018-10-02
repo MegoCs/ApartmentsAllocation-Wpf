@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ApartmentsAllocationHelper.Models.EntityModels;
 
 namespace ApartmentsAllocationHelper
 {
@@ -20,6 +21,7 @@ namespace ApartmentsAllocationHelper
     /// </summary>
     public partial class MainWindow : Window
     {
+        ApartmentDeliveryDbContext _dbContext;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +36,20 @@ namespace ApartmentsAllocationHelper
             catch (Exception ex)
             {
                 Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
+        }
+        private bool CheckPassword (string pass){
+            try
+            {
+                using (_dbContext = new ApartmentDeliveryDbContext())
+                {
+                    return _dbContext.LoginDetails.Any(x => x.UserPassword == pass);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                return false;
             }
         }
     }
