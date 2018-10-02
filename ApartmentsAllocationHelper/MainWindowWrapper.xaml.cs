@@ -23,11 +23,18 @@ namespace ApartmentsAllocationHelper
         public MainWindow()
         {
             InitializeComponent();
-            MainForm mainForm = new MainForm();
-            this.Hide();
-            mainForm.ShowDialog();
-            
-            this.Close();
+            try
+            {
+                MainForm mainForm = new MainForm();
+                this.Hide();
+                mainForm.ShowDialog();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
     }
 }

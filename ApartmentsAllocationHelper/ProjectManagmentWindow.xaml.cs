@@ -29,79 +29,101 @@ namespace ApartmentsAllocationHelper
         public ProjectManagmentWindow(List<Towers>  Tlist)
         {
             InitializeComponent();
-            _dbContext = new ApartmentDeliveryDbContext();
-            TowersList.ItemsSource = Tlist;
-
-
+            try
+            {
+                TowersList.ItemsSource = Tlist;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void TowersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                ApartmentImg.Source = null;
-                curTower = TowersList.SelectedItem as Towers;
-                
-                ApartmentsWithDetailsList.ItemsSource=_dbContext.Apartments
-                                     .Include(A => A.Floor)
-                                     .Include(A => A.Client)
-                                     .Include(A => A.Type)
-                                     .ThenInclude(T => T.Tower)
-                                     .Where(A=>A.Type.TowerId==curTower.Id)
-                                     .OrderBy(A=>A.Floor.FloorNo)
-                                     .ThenByDescending(A=>A.ApartmentNumber)
-                                     .ToList();
-                ApartmentsWithDetailsList.Height = (this.Height / 5) * 4;
+                using (_dbContext = new ApartmentDeliveryDbContext())
+                {
+                    ApartmentImg.Source = null;
+                    curTower = TowersList.SelectedItem as Towers;
+
+                    ApartmentsWithDetailsList.ItemsSource = _dbContext.Apartments
+                                         .Include(A => A.Floor)
+                                         .Include(A => A.Client)
+                                         .Include(A => A.Type)
+                                         .ThenInclude(T => T.Tower)
+                                         .Where(A => A.Type.TowerId == curTower.Id)
+                                         .OrderBy(A => A.Floor.FloorNo)
+                                         .ThenByDescending(A => A.ApartmentNumber)
+                                         .ToList();
+                    ApartmentsWithDetailsList.Height = (this.Height / 5) * 4;
 
 
-                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
-                PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
-                view.GroupDescriptions.Add(groupDescription);
+                    CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
+                    PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
+                    view.GroupDescriptions.Add(groupDescription); 
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void OccupayApartment_Click(object sender, RoutedEventArgs e)
         {
-            if (curApart != null && curTower != null) {
-                OccupationWindow occ = new OccupationWindow(curApart);
-                occ.ShowDialog();
-                TowersList_SelectionChanged(null,null);
-                ApartmentsWithDetailsList_SelectionChanged(null, null);
+            try
+            {
+                if (curApart != null && curTower != null)
+                {
+                    OccupationWindow occ = new OccupationWindow(curApart);
+                    occ.ShowDialog();
+                    TowersList_SelectionChanged(null, null);
+                    ApartmentsWithDetailsList_SelectionChanged(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void ApartmentsWithDetailsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ApartmentsWithDetailsList.SelectedItem != null) {
-                curApart = ApartmentsWithDetailsList.SelectedItem as Apartments;
-                curApartAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
-                if (curApart.Client != null)
-                    curApartClientTxt.Text = curApart.Client.ClientName;
-                else
-                    curApartClientTxt.Text = "";
-            }
-            if (curApart.Type.ApartmentImage != null)
+            try
             {
-                var ms = new MemoryStream(curApart.Type.ApartmentImage);
-                var bitmapImg = new BitmapImage();
-                bitmapImg.BeginInit();
-                bitmapImg.StreamSource = ms;
-                bitmapImg.EndInit();
-                ApartmentImg.Source = bitmapImg;
+                if (ApartmentsWithDetailsList.SelectedItem != null)
+                {
+                    curApart = ApartmentsWithDetailsList.SelectedItem as Apartments;
+                    curApartAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
+                    if (curApart.Client != null)
+                        curApartClientTxt.Text = curApart.Client.ClientName;
+                    else
+                        curApartClientTxt.Text = "";
+                }
+                if (curApart.Type.ApartmentImage != null)
+                {
+                    var ms = new MemoryStream(curApart.Type.ApartmentImage);
+                    var bitmapImg = new BitmapImage();
+                    bitmapImg.BeginInit();
+                    bitmapImg.StreamSource = ms;
+                    bitmapImg.EndInit();
+                    ApartmentImg.Source = bitmapImg;
+                }
+                else
+                    ApartmentImg.Source = null;
+
+                if (curApart.OccupationStatus == "NONE")
+                    OccupayApartment.IsEnabled = true;
+                else
+                    OccupayApartment.IsEnabled = false;
             }
-            else
-                ApartmentImg.Source = null;
-
-            if (curApart.OccupationStatus == "NONE")
-                OccupayApartment.IsEnabled = true;
-            else
-                OccupayApartment.IsEnabled = false;
-
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
     }
 }

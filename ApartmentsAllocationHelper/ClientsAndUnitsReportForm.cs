@@ -16,12 +16,19 @@ namespace ApartmentsAllocationHelper
         public ClientsAndUnitsReportForm(List<Projects> _proj)
         {
             InitializeComponent();
-            projectsComboBox.DisplayMember= "ProjectName";
-            projectsComboBox.ValueMember = "Id";
-            projectsComboBox.DataSource = _proj;
+            try
+            {
+                projectsComboBox.DisplayMember = "ProjectName";
+                projectsComboBox.ValueMember = "Id";
+                projectsComboBox.DataSource = _proj;
 
-            towersComboBox.DisplayMember = "TowerName";
-            towersComboBox.ValueMember = "Id";
+                towersComboBox.DisplayMember = "TowerName";
+                towersComboBox.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ClientsAndUnitsReportForm_Load(object sender, EventArgs e)
@@ -32,22 +39,36 @@ namespace ApartmentsAllocationHelper
         private void LoadReportBtn_Click(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'ClientsAndUnits.ClientsAndTheirUnits' table. You can move, or remove it, as needed.
-            if (!string.IsNullOrEmpty(towersComboBox.SelectedValue as string))
+            try
             {
-                this.ClientsAndTheirUnitsTableAdapter.Fill(this.ClientsAndUnits.ClientsAndTheirUnits, towersComboBox.SelectedValue as string);
+                if (!string.IsNullOrEmpty(towersComboBox.SelectedValue as string))
+                {
+                    this.ClientsAndTheirUnitsTableAdapter.Fill(this.ClientsAndUnits.ClientsAndTheirUnits, towersComboBox.SelectedValue as string);
 
-                this.reportViewer1.RefreshReport();
+                    this.reportViewer1.RefreshReport();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void ProjectsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (projectsComboBox.SelectedItem != null)
+            try
             {
-                towersComboBox.DisplayMember = "TowerName";
-                towersComboBox.ValueMember = "Id";
-                List<Towers> tList = (projectsComboBox.SelectedItem as Projects).Towers.ToList();
-                towersComboBox.DataSource = tList;
+                if (projectsComboBox.SelectedItem != null)
+                {
+                    towersComboBox.DisplayMember = "TowerName";
+                    towersComboBox.ValueMember = "Id";
+                    List<Towers> tList = (projectsComboBox.SelectedItem as Projects).Towers.ToList();
+                    towersComboBox.DataSource = tList;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
                 
         }

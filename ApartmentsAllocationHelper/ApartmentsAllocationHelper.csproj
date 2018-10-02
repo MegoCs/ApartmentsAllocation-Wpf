@@ -175,10 +175,12 @@
     <Compile Include="ClientsViewGrid.xaml.cs">
       <DependentUpon>ClientsViewGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="ManualPage.xaml.cs">
       <DependentUpon>ManualPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityModels\LoginDetails.cs" />
+    <Compile Include="Models\EntityModels\Logs.cs" />
     <Compile Include="SetTowerDetails.xaml.cs">
       <DependentUpon>SetTowerDetails.xaml</DependentUpon>
     </Compile>

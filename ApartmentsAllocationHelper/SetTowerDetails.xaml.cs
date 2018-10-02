@@ -30,119 +30,173 @@ namespace ApartmentsAllocationHelper
         public SetTowerDetails(List<Towers> towersList)
         {
             InitializeComponent();
-            towersCombo.ItemsSource = towersList;
+
+            try
+            {
+                towersCombo.ItemsSource = towersList;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ApartmentTypesListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            curType = apartmentTypesListview.SelectedItem as ApartmentTypesPerTower;
-            typeAreaTxt.Text = curType.ApartmentArea.ToString();
-            if (curType != null)
+            try
             {
-                if (curType.ApartmentImage != null)
+                curType = apartmentTypesListview.SelectedItem as ApartmentTypesPerTower;
+                typeAreaTxt.Text = curType.ApartmentArea.ToString();
+                if (curType != null)
                 {
-                    var ms = new MemoryStream(curType.ApartmentImage);
-                    var bitmapImg = new BitmapImage();
-                    bitmapImg.BeginInit();
-                    bitmapImg.StreamSource = ms;
-                    bitmapImg.EndInit();
-                    curTypeImg.Source = bitmapImg;
+                    if (curType.ApartmentImage != null)
+                    {
+                        var ms = new MemoryStream(curType.ApartmentImage);
+                        var bitmapImg = new BitmapImage();
+                        bitmapImg.BeginInit();
+                        bitmapImg.StreamSource = ms;
+                        bitmapImg.EndInit();
+                        curTypeImg.Source = bitmapImg;
+                    }
+                    else
+                    {
+                        curTypeImg.Source = null;
+                    }
                 }
-                else {
-                    curTypeImg.Source = null;
-                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void SaveDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (curType != null && curTower != null && !string.IsNullOrEmpty(typeAreaTxt.Text))
+            try
             {
-                curTower.TowerName = towerNameTxt.Text;
-                curType.ApartmentArea = int.Parse(typeAreaTxt.Text);
-                curTower.TowerMessage = towerMessage.Text;
-                using (_dbcontext = new ApartmentDeliveryDbContext())
+                if (curType != null && curTower != null && !string.IsNullOrEmpty(typeAreaTxt.Text))
                 {
-                    _dbcontext.ApartmentTypesPerTower.Update(curType);
-                    _dbcontext.Towers.Update(curTower);
-                    _dbcontext.SaveChanges();
-                    MessageBox.Show("تم حفظ البيانات");
+                    curTower.TowerName = towerNameTxt.Text;
+                    curType.ApartmentArea = int.Parse(typeAreaTxt.Text);
+                    curTower.TowerMessage = towerMessage.Text;
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
+                    {
+                        _dbcontext.ApartmentTypesPerTower.Update(curType);
+                        _dbcontext.Towers.Update(curTower);
+                        _dbcontext.SaveChanges();
+                        MessageBox.Show("تم حفظ البيانات");
+                    }
                 }
+                else
+                    MessageBox.Show("برجاء اختيار البرج و الوحدات");
             }
-            else
-                MessageBox.Show("برجاء اختيار البرج و الوحدات");
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
 
         }
 
         private void SelectImg_Click(object sender, RoutedEventArgs e)
         {
-            if(curType!=null){
-                OpenFileDialog Img = new OpenFileDialog
+            try
             {
-                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
-                Multiselect = false
-            };
-                if (Img.ShowDialog() == true)
+                if (curType != null)
                 {
-                    curType.ApartmentImage = File.ReadAllBytes(Img.FileName);
-                    curTypeImg.Source = new BitmapImage(new Uri(Img.FileName));
+                    OpenFileDialog Img = new OpenFileDialog
+                    {
+                        Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
+                        Multiselect = false
+                    };
+                    if (Img.ShowDialog() == true)
+                    {
+                        curType.ApartmentImage = File.ReadAllBytes(Img.FileName);
+                        curTypeImg.Source = new BitmapImage(new Uri(Img.FileName));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void SelectTowerImg_Click(object sender, RoutedEventArgs e)
         {
-            if (curTower !=null) {
-                OpenFileDialog Img = new OpenFileDialog
+            try
+            {
+                if (curTower != null)
                 {
-                    Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
-                    Multiselect = false
-                };
-                if (Img.ShowDialog() == true)
-                {
-                    curTower.TowerImage = File.ReadAllBytes(Img.FileName);
-                    towerImg.Source = new BitmapImage(new Uri(Img.FileName));
+                    OpenFileDialog Img = new OpenFileDialog
+                    {
+                        Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
+                        Multiselect = false
+                    };
+                    if (Img.ShowDialog() == true)
+                    {
+                        curTower.TowerImage = File.ReadAllBytes(Img.FileName);
+                        towerImg.Source = new BitmapImage(new Uri(Img.FileName));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void TowersCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!(towersCombo.SelectedValue is null))
+            try
             {
-                curTower = towersCombo.SelectedItem as Towers;
-                towerNameTxt.Text = curTower.TowerName;
-                if (!string.IsNullOrEmpty(curTower.TowerMessage))
-                    towerMessage.Text = curTower.TowerMessage;
-                else
-                    towerMessage.Text = "";
+                if (!(towersCombo.SelectedValue is null))
+                {
+                    curTower = towersCombo.SelectedItem as Towers;
+                    towerNameTxt.Text = curTower.TowerName;
+                    if (!string.IsNullOrEmpty(curTower.TowerMessage))
+                        towerMessage.Text = curTower.TowerMessage;
+                    else
+                        towerMessage.Text = "";
 
-                if (curTower.TowerImage != null)
-                {
-                    var ms = new MemoryStream(curTower.TowerImage);
-                    var bitmapImg = new BitmapImage();
-                    bitmapImg.BeginInit();
-                    bitmapImg.StreamSource = ms;
-                    bitmapImg.EndInit();
-                    towerImg.Source = bitmapImg;
+                    if (curTower.TowerImage != null)
+                    {
+                        var ms = new MemoryStream(curTower.TowerImage);
+                        var bitmapImg = new BitmapImage();
+                        bitmapImg.BeginInit();
+                        bitmapImg.StreamSource = ms;
+                        bitmapImg.EndInit();
+                        towerImg.Source = bitmapImg;
+                    }
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
+                    {
+                        apartsList = _dbcontext.ApartmentTypesPerTower.Where(x => x.TowerId == towersCombo.SelectedValue.ToString()).OrderBy(x => x.TagNumber).ToList();
+                    }
+                    apartmentTypesListview.ItemsSource = apartsList;
                 }
-                using (_dbcontext = new ApartmentDeliveryDbContext())
-                {
-                    apartsList = _dbcontext.ApartmentTypesPerTower.Where(x => x.TowerId == towersCombo.SelectedValue.ToString()).OrderBy(x => x.TagNumber).ToList();
-                }
-                apartmentTypesListview.ItemsSource = apartsList;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void DeleteTowerBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (curTower != null) {
-                using (_dbcontext = new ApartmentDeliveryDbContext())
+            try
+            {
+                if (curTower != null)
                 {
-                    _dbcontext.Towers.Remove(curTower);
-                    _dbcontext.Floors.RemoveRange(_dbcontext.Floors.Where(x => x.TowerId == curTower.Id));
-                    _dbcontext.SaveChanges();
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
+                    {
+                        _dbcontext.Towers.Remove(curTower);
+                        _dbcontext.Floors.RemoveRange(_dbcontext.Floors.Where(x => x.TowerId == curTower.Id));
+                        _dbcontext.SaveChanges();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }

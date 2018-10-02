@@ -33,69 +33,106 @@ namespace ApartmentsAllocationHelper
         public AccessDbDataMigration()
         {
             InitializeComponent();
-            _dbContext = new ApartmentDeliveryDbContext();
-            MigrationSlientWorker = new BackgroundWorker();
-            MigrationSlientWorker.DoWork += MigrationSlientWorker_DoWork;
-            MigrationSlientWorker.RunWorkerCompleted += MigrationSlientWorker_RunWorkerCompleted;
-            MigrationSlientWorker.WorkerReportsProgress = true;
-            MigrationSlientWorker.ProgressChanged += MigrationSlientWorker_ProgressChanged;
+            try
+            {
+                MigrationSlientWorker = new BackgroundWorker();
+                MigrationSlientWorker.DoWork += MigrationSlientWorker_DoWork;
+                MigrationSlientWorker.RunWorkerCompleted += MigrationSlientWorker_RunWorkerCompleted;
+                MigrationSlientWorker.WorkerReportsProgress = true;
+                MigrationSlientWorker.ProgressChanged += MigrationSlientWorker_ProgressChanged;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
         private void MigrationSlientWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progress.Value = e.ProgressPercentage;
+            try
+            {
+                progress.Value = e.ProgressPercentage;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void MigrationSlientWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            System.Windows.MessageBox.Show("تم نقل البيانات الجديدة");
-            this.Close();
+            try
+            {
+                System.Windows.MessageBox.Show("تم نقل البيانات الجديدة");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void MigrationSlientWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            int clientsNum = 0, currentChecked = 0;
-            ConnectionHandler dbHandler = new ConnectionHandler(DbLocation);
-            dbHandler.StartConnection();
-            dbHandler.SQLCODE("select count(*) from Clients", false);
-            if (dbHandler.myReader.Read())
+            try
             {
-                int.TryParse(dbHandler.myReader[0].ToString(), out clientsNum);
-            }
-            dbHandler.SQLCODE("select * from Clients", false);
-            while (dbHandler.myReader.Read())
-            {
-                currentChecked++;
-                string nationalId = dbHandler.myReader["national_id"].ToString();
-                if (!_dbContext.Clients.Any(x => x.NationalId == nationalId))
+                using (_dbContext = new ApartmentDeliveryDbContext())
                 {
-                    _dbContext.Clients.Add(new Clients()
+                    int clientsNum = 0, currentChecked = 0;
+                    ConnectionHandler dbHandler = new ConnectionHandler(DbLocation);
+                    dbHandler.StartConnection();
+                    dbHandler.SQLCODE("select count(*) from Clients", false);
+                    if (dbHandler.myReader.Read())
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        ClientName = dbHandler.myReader["client_name"].ToString(),
-                        NationalId = dbHandler.myReader["national_id"].ToString(),
-                        PhoneNumber = dbHandler.myReader["phone_number"].ToString(),
-                        ClientAddress= dbHandler.myReader["address"].ToString()
-                    });
+                        int.TryParse(dbHandler.myReader[0].ToString(), out clientsNum);
+                    }
+                    dbHandler.SQLCODE("select * from Clients", false);
+                    while (dbHandler.myReader.Read())
+                    {
+                        currentChecked++;
+                        string nationalId = dbHandler.myReader["national_id"].ToString();
+                        if (!_dbContext.Clients.Any(x => x.NationalId == nationalId))
+                        {
+                            _dbContext.Clients.Add(new Clients()
+                            {
+                                Id = Guid.NewGuid().ToString(),
+                                ClientName = dbHandler.myReader["client_name"].ToString(),
+                                NationalId = dbHandler.myReader["national_id"].ToString(),
+                                PhoneNumber = dbHandler.myReader["phone_number"].ToString(),
+                                ClientAddress = dbHandler.myReader["address"].ToString()
+                            });
+                        }
+                        float progress = ((currentChecked + 1) * 100) / clientsNum;
+                        MigrationSlientWorker.ReportProgress(Convert.ToInt32(progress));
+                    }
+                    dbHandler.myConnection.Close();
+                    _dbContext.SaveChanges();
                 }
-                float progress = ((currentChecked + 1) * 100) / clientsNum;
-                MigrationSlientWorker.ReportProgress(Convert.ToInt32(progress));
             }
-            dbHandler.myConnection.Close();
-            _dbContext.SaveChanges();
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
         private void SelectDbFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            selectDbFileBtn.IsEnabled = false;
-            OpenFileDialog AccessDbFile = new OpenFileDialog
+            try
             {
-                Filter = "AccessFiles (*.accdb)|*.accdb",
-                Multiselect = false
-            };
-            if (AccessDbFile.ShowDialog() == true)
+                selectDbFileBtn.IsEnabled = false;
+                OpenFileDialog AccessDbFile = new OpenFileDialog
+                {
+                    Filter = "AccessFiles (*.accdb)|*.accdb",
+                    Multiselect = false
+                };
+                if (AccessDbFile.ShowDialog() == true)
+                {
+                    DbLocation = AccessDbFile.FileName;
+                    MigrationSlientWorker.RunWorkerAsync();
+                    DescriptionDetailsTxt.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
             {
-                DbLocation = AccessDbFile.FileName;
-                MigrationSlientWorker.RunWorkerAsync();
-                DescriptionDetailsTxt.Visibility = Visibility.Visible;
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }

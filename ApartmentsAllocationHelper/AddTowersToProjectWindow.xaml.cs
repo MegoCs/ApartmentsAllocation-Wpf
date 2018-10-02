@@ -30,91 +30,122 @@ namespace ApartmentsAllocationHelper
         public AddTowersToProjectWindow()
         {
             InitializeComponent();
-            towerToBeAdd = new Towers();
-            using (_dbContext = new ApartmentDeliveryDbContext()) {
-                pList=_dbContext.Projects.ToList();
-                projNamesCombo.ItemsSource = pList;
+            try
+            {
+                towerToBeAdd = new Towers();
+                using (_dbContext = new ApartmentDeliveryDbContext())
+                {
+                    pList = _dbContext.Projects.ToList();
+                    projNamesCombo.ItemsSource = pList;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void TowerImgSelect_Click(object sender, RoutedEventArgs e)
         {
-            //towerToBeAdd.TowerImage =;
-            OpenFileDialog Img = new OpenFileDialog
+            try
             {
-                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
-                Multiselect = false
-            };
-            if (Img.ShowDialog() == true)
+                OpenFileDialog Img = new OpenFileDialog
+                {
+                    Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
+                    Multiselect = false
+                };
+                if (Img.ShowDialog() == true)
+                {
+                    towerToBeAdd.TowerImage = File.ReadAllBytes(Img.FileName);
+                }
+            }
+            catch (Exception ex)
             {
-                towerToBeAdd.TowerImage= File.ReadAllBytes(Img.FileName);
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            towerToBeAdd.FloorsNumber = decimal.Parse(FloorsNumTxt.Text);
-            towerToBeAdd.ApartmentsPerFloor = decimal.Parse(ApartmentPerFloorNumTxt.Text);
-            towerToBeAdd.TowerName = towerNameTxt.Text;
-            towerToBeAdd.ProjectId = projNamesCombo.SelectedValue as string;
-            towerToBeAdd.Id = Guid.NewGuid().ToString();
-            apartType = new List<ApartmentTypesPerTower>();
+            try
+            {
+                towerToBeAdd.FloorsNumber = decimal.Parse(FloorsNumTxt.Text);
+                towerToBeAdd.ApartmentsPerFloor = decimal.Parse(ApartmentPerFloorNumTxt.Text);
+                towerToBeAdd.TowerName = towerNameTxt.Text;
+                towerToBeAdd.ProjectId = projNamesCombo.SelectedValue as string;
+                towerToBeAdd.Id = Guid.NewGuid().ToString();
+                apartType = new List<ApartmentTypesPerTower>();
 
-            if (towerToBeAdd.FloorsNumber != 0 && towerToBeAdd.ApartmentsPerFloor != 0 && !string.IsNullOrEmpty(towerToBeAdd.TowerName)) {
-                using (_dbContext = new ApartmentDeliveryDbContext()) {
-                    _dbContext.Towers.Add(towerToBeAdd);
-
-                    for (int i = 1; i <= towerToBeAdd.ApartmentsPerFloor; i++)
+                if (towerToBeAdd.FloorsNumber != 0 && towerToBeAdd.ApartmentsPerFloor != 0 && !string.IsNullOrEmpty(towerToBeAdd.TowerName))
+                {
+                    using (_dbContext = new ApartmentDeliveryDbContext())
                     {
-                        apartType.Add(new ApartmentTypesPerTower()
-                        {
-                            ApartmentArea = 100,
-                            Id = Guid.NewGuid().ToString(),
-                            TagNumber =i,
-                            TagName = $"{10 + i} شقة",
-                            TowerId = towerToBeAdd.Id,
-                        });
-                        _dbContext.ApartmentTypesPerTower.Add(apartType[i-1]);
-                    }
+                        _dbContext.Towers.Add(towerToBeAdd);
 
-                    for (int i = 1  ; i < towerToBeAdd.FloorsNumber+1; i++)
-                    {
-                        Floors newFloor = new Floors()
+                        for (int i = 1; i <= towerToBeAdd.ApartmentsPerFloor; i++)
                         {
-                            ApartmentsNumber = towerToBeAdd.ApartmentsPerFloor,
-                            FloorNo = i,
-                            TowerId = towerToBeAdd.Id,
-                            Id = Guid.NewGuid().ToString()
-                        };
-
-                        _dbContext.Floors.Add(newFloor);
-                        for (int j = 1; j < towerToBeAdd.ApartmentsPerFloor + 1; j++)
-                        {
-                        Apartments newApart = new Apartments() {
-                                ApartmentNumber = (i * 10) + j,
-                                ApartmentName = $"{((i * 10) + j)} شقة",
-                                OccupationStatus="NONE",
-                                FloorId=newFloor.Id,
-                                Id=Guid.NewGuid().ToString(),
-                                TypeId = apartType[j-1].Id,
-                            };
-                            _dbContext.Apartments.Add(newApart);
+                            apartType.Add(new ApartmentTypesPerTower()
+                            {
+                                ApartmentArea = 100,
+                                Id = Guid.NewGuid().ToString(),
+                                TagNumber = i,
+                                TagName = $"{10 + i} شقة",
+                                TowerId = towerToBeAdd.Id,
+                            });
+                            _dbContext.ApartmentTypesPerTower.Add(apartType[i - 1]);
                         }
-                    }
 
-                    _dbContext.SaveChanges();
-                    MessageBox.Show("تم اضافة البرج");
-                    ClearValues();
+                        for (int i = 1; i < towerToBeAdd.FloorsNumber + 1; i++)
+                        {
+                            Floors newFloor = new Floors()
+                            {
+                                ApartmentsNumber = towerToBeAdd.ApartmentsPerFloor,
+                                FloorNo = i,
+                                TowerId = towerToBeAdd.Id,
+                                Id = Guid.NewGuid().ToString()
+                            };
+
+                            _dbContext.Floors.Add(newFloor);
+                            for (int j = 1; j < towerToBeAdd.ApartmentsPerFloor + 1; j++)
+                            {
+                                Apartments newApart = new Apartments()
+                                {
+                                    ApartmentNumber = (i * 10) + j,
+                                    ApartmentName = $"{((i * 10) + j)} شقة",
+                                    OccupationStatus = "NONE",
+                                    FloorId = newFloor.Id,
+                                    Id = Guid.NewGuid().ToString(),
+                                    TypeId = apartType[j - 1].Id,
+                                };
+                                _dbContext.Apartments.Add(newApart);
+                            }
+                        }
+
+                        _dbContext.SaveChanges();
+                        MessageBox.Show("تم اضافة البرج");
+                        ClearValues();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void ClearValues()
         {
-            towerToBeAdd = null;
-            towerNameTxt.Text = "";
-            FloorsNumTxt.Text = "";
-            ApartmentPerFloorNumTxt.Text = "";
+            try
+            {
+                towerToBeAdd = null;
+                towerNameTxt.Text = "";
+                FloorsNumTxt.Text = "";
+                ApartmentPerFloorNumTxt.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
     }
 }

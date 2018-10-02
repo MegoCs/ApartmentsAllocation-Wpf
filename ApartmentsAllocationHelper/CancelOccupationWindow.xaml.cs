@@ -29,33 +29,41 @@ namespace ApartmentsAllocationHelper
 
         private void ConfirmDeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(clientNationalTxt.Text))
+            try
             {
-                using (_dbcontext = new ApartmentDeliveryDbContext())
+                if (!string.IsNullOrEmpty(clientNationalTxt.Text))
                 {
-                    var client = _dbcontext.Clients.Where(C => C.NationalId == clientNationalTxt.Text).Include(x => x.Apartments).SingleOrDefault();
-
-                    if (client != null)
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
                     {
-                        if (client.Apartments.Count > 0)
+                        var client = _dbcontext.Clients.Where(C => C.NationalId == clientNationalTxt.Text).Include(x => x.Apartments).SingleOrDefault();
+
+                        if (client != null)
                         {
-                            var apart = client.Apartments.ToList()[0];
-                            apart.ClientId = null;
-                            apart.OccupationStatus = "NONE";
-                            _dbcontext.Update(apart);
-                            _dbcontext.SaveChanges();
-                            MessageBox.Show("تم الغاء تخصيص الوحدة");
-                            clientNationalTxt.Text = "";
+                            if (client.Apartments.Count > 0)
+                            {
+                                var apart = client.Apartments.ToList()[0];
+                                apart.ClientId = null;
+                                apart.OccupationStatus = "NONE";
+                                _dbcontext.Update(apart);
+                                _dbcontext.SaveChanges();
+                                MessageBox.Show("تم الغاء تخصيص الوحدة");
+                                clientNationalTxt.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("لا توجد غرفة محجوزة لهذا الرقم");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("لا توجد غرفة محجوزة لهذا الرقم");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("برجاء كتابة البيانات");
                 }
             }
-            else {
-                MessageBox.Show("برجاء كتابة البيانات");
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }

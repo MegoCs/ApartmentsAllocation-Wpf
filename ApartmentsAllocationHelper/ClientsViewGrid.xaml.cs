@@ -26,28 +26,44 @@ namespace ApartmentsAllocationHelper
         public ClientsViewGrid()
         {
             InitializeComponent();
-            using (_dbContext = new ApartmentDeliveryDbContext())
+            try
             {
-                clientsList = _dbContext.Clients.ToList();
-                clientsDataView.ItemsSource = clientsList;
+                using (_dbContext = new ApartmentDeliveryDbContext())
+                {
+                    clientsList = _dbContext.Clients.ToList();
+                    clientsDataView.ItemsSource = clientsList;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            if ((!string.IsNullOrEmpty(clientNationalTxt.Text))&& (!string.IsNullOrEmpty(clientNameTxt.Text)))
+            try
             {
-                clientsDataView.ItemsSource = clientsList.Where(x => x.NationalId.Contains(clientNationalTxt.Text)&& x.ClientName.Contains(clientNameTxt.Text)).ToList();
+                if ((!string.IsNullOrEmpty(clientNationalTxt.Text)) && (!string.IsNullOrEmpty(clientNameTxt.Text)))
+                {
+                    clientsDataView.ItemsSource = clientsList.Where(x => x.NationalId.Contains(clientNationalTxt.Text) && x.ClientName.Contains(clientNameTxt.Text)).ToList();
+                }
+                else if (!string.IsNullOrEmpty(clientNationalTxt.Text))
+                {
+                    clientsDataView.ItemsSource = clientsList.Where(x => x.NationalId.Contains(clientNationalTxt.Text)).ToList();
+                }
+                else if (!string.IsNullOrEmpty(clientNameTxt.Text))
+                {
+                    clientsDataView.ItemsSource = clientsList.Where(x => x.ClientName.Contains(clientNameTxt.Text)).ToList();
+                }
+                else
+                {
+                    clientsDataView.ItemsSource = clientsList;
+                }
             }
-            else if (!string.IsNullOrEmpty(clientNationalTxt.Text)) {
-                clientsDataView.ItemsSource  = clientsList.Where(x => x.NationalId.Contains(clientNationalTxt.Text)).ToList();
-            }
-            else if (!string.IsNullOrEmpty(clientNameTxt.Text))
+            catch (Exception ex)
             {
-                clientsDataView.ItemsSource = clientsList.Where(x => x.ClientName.Contains(clientNameTxt.Text)).ToList();
-            }
-            else {
-                clientsDataView.ItemsSource = clientsList;
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }

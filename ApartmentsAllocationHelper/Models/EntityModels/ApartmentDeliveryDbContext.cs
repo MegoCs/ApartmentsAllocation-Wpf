@@ -20,6 +20,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<Floors> Floors { get; set; }
         public virtual DbSet<LoginDetails> LoginDetails { get; set; }
+        public virtual DbSet<Logs> Logs { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<Towers> Towers { get; set; }
 
@@ -28,7 +29,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
             if (!optionsBuilder.IsConfigured)
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ApartmentDeliveryDb;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=AHMED-KAMEL\\SQLEXPRESS;Initial Catalog=ApartmentDeliveryDb;Integrated Security=True");
             }
         }
 
@@ -178,10 +179,28 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
                     .HasMaxLength(30);
             });
 
+            modelBuilder.Entity<Logs>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasMaxLength(50)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.ClassName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.LogDateTime).HasColumnType("datetime");
+
+                entity.Property(e => e.LogDetails)
+                    .IsRequired()
+                    .HasMaxLength(400);
+            });
+
             modelBuilder.Entity<Projects>(entity =>
             {
                 entity.HasIndex(e => e.ProjectName)
-                    .HasName("UQ__Projects__0BBE2138951330CC")
+                    .HasName("UQ__Projects__0BBE2138FF335885")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -200,7 +219,7 @@ namespace ApartmentsAllocationHelper.Models.EntityModels
             modelBuilder.Entity<Towers>(entity =>
             {
                 entity.HasIndex(e => e.TowerName)
-                    .HasName("UQ__Towers__D8B98684B842B1C0")
+                    .HasName("UQ__Towers__D8B98684BBB32F70")
                     .IsUnique();
 
                 entity.Property(e => e.Id)

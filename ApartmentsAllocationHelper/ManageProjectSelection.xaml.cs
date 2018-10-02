@@ -31,50 +31,95 @@ namespace ApartmentsAllocationHelper
         public ManageProjectSelection(List<Projects> pList)
         {
             InitializeComponent();
-            projectsComboBox.ItemsSource = pList;
+            try
+            {
+                projectsComboBox.ItemsSource = pList;
 
-            #region Config BackGroundWorker To Load Data
-            projectDetailsLoaderAgent = new BackgroundWorker();
-            projectDetailsLoaderAgent.DoWork += ProjectDetailsLoaderAgent_DoWork;
-            projectDetailsLoaderAgent.RunWorkerCompleted += ProjectDetailsLoaderAgent_RunWorkerCompleted;
-            #endregion
+                #region Config BackGroundWorker To Load Data
+                projectDetailsLoaderAgent = new BackgroundWorker();
+                projectDetailsLoaderAgent.DoWork += ProjectDetailsLoaderAgent_DoWork;
+                projectDetailsLoaderAgent.RunWorkerCompleted += ProjectDetailsLoaderAgent_RunWorkerCompleted;
+                #endregion
 
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
 
         }
 
         private void ProjectDetailsLoaderAgent_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            showBtn.IsEnabled = true;
-            projectDetailsBtn.IsEnabled = true;
-            progressBar.Value = 100;
+            try
+            {
+                showBtn.IsEnabled = true;
+                projectDetailsBtn.IsEnabled = true;
+                progressBar.Value = 100;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ProjectDetailsLoaderAgent_DoWork(object sender, DoWorkEventArgs e)
         {
-            _dbContext = new ApartmentDeliveryDbContext();
-            Tlist = _dbContext.Towers.Where(x=>x.ProjectId== curId).Include(x => x.Floors).OrderByDescending(x => x.TowerName).ToList();
+            try
+            {
+                using(_dbContext = new ApartmentDeliveryDbContext())
+                {
+                    Tlist = _dbContext.Towers.Where(x => x.ProjectId == curId).Include(x => x.Floors).OrderByDescending(x => x.TowerName).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ShowBtn_Click(object sender, RoutedEventArgs e)
         {
-            ProjectManagmentWindow pWindow = new ProjectManagmentWindow(Tlist);
-            pWindow.Show();
+            try
+            {
+                ProjectManagmentWindow pWindow = new ProjectManagmentWindow(Tlist);
+                pWindow.Show();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ProjectsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (projectsComboBox.SelectedValue != null) {
-                showBtn.IsEnabled = false;
-                projectDetailsBtn.IsEnabled = false;
-                projectDetailsLoaderAgent.RunWorkerAsync();
-                curId = projectsComboBox.SelectedValue.ToString();
+            try
+            {
+                if (projectsComboBox.SelectedValue != null)
+                {
+                    showBtn.IsEnabled = false;
+                    projectDetailsBtn.IsEnabled = false;
+                    projectDetailsLoaderAgent.RunWorkerAsync();
+                    curId = projectsComboBox.SelectedValue.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
 
         private void ProjectDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            SetTowerDetails tDetails = new SetTowerDetails(Tlist);
-            tDetails.ShowDialog();
+            try
+            {
+                SetTowerDetails tDetails = new SetTowerDetails(Tlist);
+                tDetails.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
     }
 }

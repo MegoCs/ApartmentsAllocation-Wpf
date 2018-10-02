@@ -26,61 +26,91 @@ namespace ApartmentsAllocationHelper
         public OccupationWindow(Apartments curApart)
         {
             InitializeComponent();
-            #region Load Data And Put on form
-            _curApart = curApart;
+            try
+            {
+                #region Load Data And Put on form
+                _curApart = curApart;
 
-            towerNameTxt.Text = _curApart.Type.Tower.TowerName;
-            apartmentNameTxt.Text = _curApart.ApartmentName;
-            apartmentAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
-            floorNumTxt.Text = _curApart.Floor.FloorNo.ToString();
-            #endregion
+                towerNameTxt.Text = _curApart.Type.Tower.TowerName;
+                apartmentNameTxt.Text = _curApart.ApartmentName;
+                apartmentAreaTxt.Text = curApart.Type.ApartmentArea.ToString();
+                floorNumTxt.Text = _curApart.Floor.FloorNo.ToString();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void GetClientDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(searchClientNationalTxt.Text))
+            try
             {
-                _curClient = null;
-                UpdateClientDetailsControls("", "", "", "");
-                using (_dbContext = new ApartmentDeliveryDbContext())
+                if (!string.IsNullOrEmpty(searchClientNationalTxt.Text))
                 {
-                    _curClient = _dbContext.Clients.SingleOrDefault(x => x.NationalId == searchClientNationalTxt.Text);
-                    if (!(_curClient is null))
+                    _curClient = null;
+                    UpdateClientDetailsControls("", "", "", "");
+                    using (_dbContext = new ApartmentDeliveryDbContext())
                     {
-                        UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, "Address");
-                        ConfirmOccupation.IsEnabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("لا توجد بيانات بهذا الرقم");
-                        ConfirmOccupation.IsEnabled = false;
+                        _curClient = _dbContext.Clients.SingleOrDefault(x => x.NationalId == searchClientNationalTxt.Text);
+                        if (!(_curClient is null))
+                        {
+                            UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, "Address");
+                            ConfirmOccupation.IsEnabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("لا توجد بيانات بهذا الرقم");
+                            ConfirmOccupation.IsEnabled = false;
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("برجاء كتابة الرقم القومي للعضو");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("برجاء كتابة الرقم القومي للعضو");
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
         private void UpdateClientDetailsControls(string Name,string phone,string national,string add) {
-            clientNameTxt.Text = Name;
-            clientPhoneTxt.Text = phone;
-            clientNationalIdTxt.Text = national;
-            clientAddressTxt.Text = add;
+            try
+            {
+                clientNameTxt.Text = Name;
+                clientPhoneTxt.Text = phone;
+                clientNationalIdTxt.Text = national;
+                clientAddressTxt.Text = add;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+            }
         }
 
         private void ConfirmOccupation_Click(object sender, RoutedEventArgs e)
         {
-            if (!(_curClient is null)) {
-                using (_dbContext = new ApartmentDeliveryDbContext()) {
-                    _curApart.OccupationStatus = "DONE";
-                    _curApart.ClientId = _curClient.Id;
-                    _curApart.OccupationDate = DateTime.Now;
-                    _dbContext.Apartments.Update(_curApart);
-                    _dbContext.SaveChanges();
-                    MessageBox.Show("تم تأكيد العملية");
-                    this.Close();
+            try
+            {
+                if (!(_curClient is null))
+                {
+                    using (_dbContext = new ApartmentDeliveryDbContext())
+                    {
+                        _curApart.OccupationStatus = "DONE";
+                        _curApart.ClientId = _curClient.Id;
+                        _curApart.OccupationDate = DateTime.Now;
+                        _dbContext.Apartments.Update(_curApart);
+                        _dbContext.SaveChanges();
+                        MessageBox.Show("تم تأكيد العملية");
+                        this.Close();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }

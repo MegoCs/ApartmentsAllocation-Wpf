@@ -28,22 +28,30 @@ namespace ApartmentsAllocationHelper
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(projNameTxt.Text))
+            try
             {
-                using (_dbContext = new ApartmentDeliveryDbContext())
+                if (!string.IsNullOrEmpty(projNameTxt.Text))
                 {
-                    _dbContext.Projects.Add(new Projects()
+                    using (_dbContext = new ApartmentDeliveryDbContext())
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        ProjectName = projNameTxt.Text,
-                    });
-                    _dbContext.SaveChanges();
-                    MessageBox.Show("تم حفظ المشروع");
-                    this.Close();
+                        _dbContext.Projects.Add(new Projects()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            ProjectName = projNameTxt.Text,
+                        });
+                        _dbContext.SaveChanges();
+                        MessageBox.Show("تم حفظ المشروع");
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("برجاء اختيار اسم للمشروع");
                 }
             }
-            else {
-                MessageBox.Show("برجاء اختيار اسم للمشروع");
+            catch (Exception ex)
+            {
+                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
             }
         }
     }
