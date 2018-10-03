@@ -158,6 +158,12 @@
     <Compile Include="CancelOccupationWindow.xaml.cs">
       <DependentUpon>CancelOccupationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClientOccupationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientOccupationReport.Designer.cs">
+      <DependentUpon>ClientOccupationReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientReportPerOccupation.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -294,6 +300,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="ClientOccupationReport.resx">
+      <DependentUpon>ClientOccupationReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsAndUnitsReportForm.resx">
       <DependentUpon>ClientsAndUnitsReportForm.cs</DependentUpon>
     </EmbeddedResource>

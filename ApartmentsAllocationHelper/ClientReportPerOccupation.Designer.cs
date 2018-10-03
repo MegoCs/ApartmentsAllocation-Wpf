@@ -1214,22 +1214,22 @@ FROM            Apartments INNER JOIN
                          Floors ON Apartments.FloorID = Floors.ID INNER JOIN
                          Projects ON Apartments.ID = Projects.ID INNER JOIN
                          Towers ON ApartmentTypesPerTower.TowerID = Towers.ID AND Floors.TowerID = Towers.ID AND Projects.ID = Towers.ProjectID
-WHERE        (Clients.ID = @clientIDParam)";
+WHERE        (Clients.NationalID = @clientNationalIDParam)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@clientIDParam", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@clientNationalIDParam", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "NationalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ClientReportPerOccupation.DataTable1DataTable dataTable, string clientIDParam) {
+        public virtual int Fill(ClientReportPerOccupation.DataTable1DataTable dataTable, string clientNationalIDParam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((clientIDParam == null)) {
-                throw new global::System.ArgumentNullException("clientIDParam");
+            if ((clientNationalIDParam == null)) {
+                throw new global::System.ArgumentNullException("clientNationalIDParam");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(clientIDParam));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(clientNationalIDParam));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1242,13 +1242,13 @@ WHERE        (Clients.ID = @clientIDParam)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ClientReportPerOccupation.DataTable1DataTable GetData(string clientIDParam) {
+        public virtual ClientReportPerOccupation.DataTable1DataTable GetData(string clientNationalIDParam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((clientIDParam == null)) {
-                throw new global::System.ArgumentNullException("clientIDParam");
+            if ((clientNationalIDParam == null)) {
+                throw new global::System.ArgumentNullException("clientNationalIDParam");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(clientIDParam));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(clientNationalIDParam));
             }
             ClientReportPerOccupation.DataTable1DataTable dataTable = new ClientReportPerOccupation.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
