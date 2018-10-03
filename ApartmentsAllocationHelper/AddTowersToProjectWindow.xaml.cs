@@ -41,27 +41,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
-            }
-        }
-
-        private void TowerImgSelect_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog Img = new OpenFileDialog
-                {
-                    Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
-                    Multiselect = false
-                };
-                if (Img.ShowDialog() == true)
-                {
-                    towerToBeAdd.TowerImage = File.ReadAllBytes(Img.FileName);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
             }
         }
 
@@ -129,7 +109,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
             }
         }
 
@@ -137,14 +117,13 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
-                towerToBeAdd = null;
                 towerNameTxt.Text = "";
                 FloorsNumTxt.Text = "";
                 ApartmentPerFloorNumTxt.Text = "";
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
             }
         }
     }

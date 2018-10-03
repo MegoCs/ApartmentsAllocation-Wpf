@@ -32,7 +32,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
             #endregion
 
@@ -47,7 +47,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -60,7 +60,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -73,7 +73,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -86,7 +86,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -100,7 +100,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
 
         }
@@ -114,7 +114,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -127,7 +127,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -140,7 +140,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -153,7 +153,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
 
@@ -166,7 +166,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
     }

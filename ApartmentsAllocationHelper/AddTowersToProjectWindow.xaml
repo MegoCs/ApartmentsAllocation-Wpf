@@ -32,9 +32,6 @@
         <Label Margin="5" HorizontalAlignment="Right" Grid.Column="1"  Grid.Row="3" Content="عدد الشقق ف الدور" FontSize="24" />
         <TextBox Margin="5" Name="ApartmentPerFloorNumTxt" Grid.Column="0"  Grid.Row="3" FontSize="22" Width="200" Text="0" TextAlignment="Center" />
 
-        <Label Margin="5" HorizontalAlignment="Right" Grid.Column="1"  Grid.Row="4" Content="صورة توزيع الشقق ف البرج" FontSize="24" />
-        <Button Margin="5" Name="towerImgSelect" Grid.Column="0"  Grid.Row="4" FontSize="22" Width="200" Content="فتح" Click="TowerImgSelect_Click"/>
-
         <Button  Margin="5" Name="saveBtn" Grid.ColumnSpan="2" Grid.Row="5" Content="اضافة" FontSize="24" Click="SaveBtn_Click"/>
     </Grid>
 </Window>

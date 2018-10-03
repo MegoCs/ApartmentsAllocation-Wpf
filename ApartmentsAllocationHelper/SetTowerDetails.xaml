@@ -18,41 +18,46 @@
         </Grid.RowDefinitions>
 
 
-        <Label Grid.Column="1" Content="اختيار البرج" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox Grid.Column="1" SelectionChanged="TowersCombo_SelectionChanged" Name="towersCombo" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,50,0" Width="200" DisplayMemberPath="TowerName" SelectedValuePath="Id"/>
+        <Label Grid.Column="1" Content="اختيار البرج" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="99"/>
+        <ComboBox Grid.Column="1" SelectionChanged="TowersCombo_SelectionChanged" Name="towersCombo" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="65,20,116,0" Width="200" DisplayMemberPath="TowerName" SelectedValuePath="Id" Height="22"/>
 
-        <Label Grid.Column="1" Content="الاسم الجديد" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,50,10,0" FontSize="20"/>
-        <TextBox Grid.Column="1" Name="towerNameTxt" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="Wrap" Text="الاسم الجديد" Margin="0,50,0,0"  TextAlignment="Center" FontSize="20"/>
-
-        <Button Grid.Column="1" x:Name="selectTowerImg" Content="اختيار صورة للبرج" Margin="0,100,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="SelectTowerImg_Click" FontSize="20" />
-        <Button Grid.Column="1" x:Name="deleteTowerBtn" Content="مسح بيانات البرج" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="DeleteTowerBtn_Click" FontSize="20" />
+        <Label Grid.Column="1" Content="الاسم الجديد" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,50,10,0" FontSize="20" Height="37" Width="111"/>
+        <TextBox Grid.Column="1" Name="towerNameTxt" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="Wrap" Text="الاسم الجديد" Margin="137,50,137,0"  TextAlignment="Center" FontSize="20" Height="29" Width="107"/>
+        <Button Grid.Column="1" x:Name="deleteTowerBtn" Content="مسح بيانات البرج" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="DeleteTowerBtn_Click" FontSize="20" Height="31" Width="144" />
         <Image Grid.Column="1" Grid.Row="2" Name="towerImg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
 
-        <Label Grid.Column="1" Grid.Row="1" Content="ترخيص البرج" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="10" FontSize="20"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="towerMessage" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="" Margin="10,10,120,10"  TextAlignment="Center" FontSize="16" Width="234" Height="100"/>
+        <Label Grid.Column="1" Content="ترخيص البرج" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="10" FontSize="20" Height="38" Grid.Row="2" Width="116"/>
+        <TextBox Grid.Column="1" Name="towerMessage" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Text="" Margin="10"  TextAlignment="Center" FontSize="16" Width="234" Height="172" Grid.Row="2"/>
 
-
-        <Label Grid.Column="0" Content="البيانات الاساسية للوحدات" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Top" FontSize="20"/>
-        <ListView Grid.Column="0" FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40" Height="auto" BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" >
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Assets/Apartment.png" Width="50" Height="50"/>
-                        <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding TagName}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label  Grid.Column="0" Content="المساحة" HorizontalAlignment="Right" Margin="10,20,10,10" VerticalAlignment="Bottom" FontSize="20"/>
-        <TextBox Grid.Column="0" Name="typeAreaTxt" HorizontalAlignment="Right" Margin="10,20,100,10" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" TextAlignment="Center" Width="60" FontSize="20"/>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Label  Content="البيانات الاساسية للوحدات" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="221"/>
+            <ListView  FlowDirection="RightToLeft" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" BorderThickness="0" SelectionChanged="ApartmentTypesListview_SelectionChanged" Name="apartmentTypesListview" Background="Transparent" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Assets/Apartment.png" Width="50" Height="50"/>
+                            <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding TagName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Label  Content="المساحة" Margin="10" FontSize="20" Height="37" Width="77"/>
+                <TextBox  Name="typeAreaTxt" Margin="10" TextWrapping="Wrap" Text="0"  TextAlignment="Center" Width="60" FontSize="20" Height="29"/>
+                <Button  Name="selectImg" Content="اختيار صورة" Click="SelectImg_Click" FontSize="20" Height="31" Width="100" />
+            </StackPanel>
+        </StackPanel>
         <Image Grid.Column="0" Grid.Row="2" Name="curTypeImg"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,20,10,10" />
-        <Button Grid.Column="0" Name="selectImg" Content="اختيار صورة" HorizontalAlignment="Center" Margin="10,20,80,10" VerticalAlignment="Bottom" Click="SelectImg_Click" FontSize="20" />
-        <Button Grid.Column="0" Name="saveDetailsBtn" Content="حفظ" HorizontalAlignment="Left" Margin="40,20,200,10" VerticalAlignment="Bottom" Click="SaveDetailsBtn_Click" FontSize="20" />
+        
+       
+        
+        
+        <Button Grid.ColumnSpan="2" Grid.Row="1" Name="saveDetailsBtn" Content="حفظ تعديلات الوحدة المختارة" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom" Click="SaveDetailsBtn_Click" FontSize="20" Height="31" Width="241" />
 
 
     </Grid>

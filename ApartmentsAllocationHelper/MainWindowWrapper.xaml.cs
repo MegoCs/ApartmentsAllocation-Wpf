@@ -34,8 +34,10 @@ namespace ApartmentsAllocationHelper
             {
                 using (_dbContext = new ApartmentDeliveryDbContext())
                 {
-                    if (_dbContext.LoginDetails.Any(x => x.UserPassword == passTxt.Text))
+                    _dbContext.SaveChanges();
+                    if (_dbContext.LoginDetails.Any(x => x.UserPassword == passTxt.Password && x.UserName==userNameTxt.Text))
                     {
+                        
                         MainForm mainForm = new MainForm();
                         this.Hide();
                         mainForm.ShowDialog();
@@ -43,14 +45,14 @@ namespace ApartmentsAllocationHelper
                     }
                     else
                     {
-                        MessageBox.Show("خطأ في البيانات");
+                        MessageBox.Show("خطأ في كلمة المرور");
                         LoginBtn.IsEnabled = true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException.Message}", this.Name);
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
             }
         }
     }

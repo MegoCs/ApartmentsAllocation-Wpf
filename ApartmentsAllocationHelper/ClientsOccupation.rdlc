@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.17187in</Width>
+              <Width>0.80209in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.86458in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.33593in</Width>
@@ -392,9 +392,9 @@
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.22792in</Top>
-        <Left>0.48312in</Left>
+        <Left>0.26438in</Left>
         <Height>0.5in</Height>
-        <Width>7.53123in</Width>
+        <Width>7.02603in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -410,7 +410,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>8.39977in</Width>
+  <Width>7.45185in</Width>
   <Page>
     <PageHeader>
       <Height>1.79139in</Height>
@@ -438,12 +438,12 @@
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
           <Top>0.23833in</Top>
-          <Left>2.93104in</Left>
+          <Left>2.82166in</Left>
           <Height>0.39583in</Height>
           <Width>4.46875in</Width>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -493,8 +493,9 @@
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -528,8 +529,9 @@
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -545,7 +547,7 @@
                 <TextRun>
                   <Value>=First(Fields!TowerMessage.Value, "DataSet1")</Value>
                   <Style>
-                    <FontSize>18pt</FontSize>
+                    <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -558,13 +560,14 @@
           <rd:DefaultName>Textbox20</rd:DefaultName>
           <Top>1.23945in</Top>
           <Left>0.24875in</Left>
-          <Height>0.35417in</Height>
+          <Height>0.4825in</Height>
           <Width>7.04166in</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -663,10 +666,10 @@
     </PageFooter>
     <PageHeight>11.69in</PageHeight>
     <PageWidth>8.27in</PageWidth>
-    <LeftMargin>0.25in</LeftMargin>
-    <RightMargin>0.25in</RightMargin>
-    <TopMargin>0.25in</TopMargin>
-    <BottomMargin>0.5in</BottomMargin>
+    <LeftMargin>0.4in</LeftMargin>
+    <RightMargin>0.4in</RightMargin>
+    <TopMargin>0.4in</TopMargin>
+    <BottomMargin>0.4in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

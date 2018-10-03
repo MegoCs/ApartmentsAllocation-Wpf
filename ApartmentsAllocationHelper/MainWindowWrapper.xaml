@@ -10,11 +10,11 @@
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Margin="5" Orientation="Horizontal">
                 <TextBlock Margin="5" Text="اسم المستخدم" FontSize="20" Width="120" Height="30"/>
-                <TextBox Margin="5" Text="Admin" IsEnabled="False" FontSize="20"  Width="150" TextAlignment="Center" Height="30"/>
+                <TextBox Margin="5" Text="Admin" Name="userNameTxt" IsEnabled="False" FontSize="20"  Width="150" TextAlignment="Center" Height="30"/>
             </StackPanel>
             <StackPanel Margin="5" Orientation="Horizontal">
-                <TextBlock Name="passTxt" Margin="5" Text="كلمة المرور" FontSize="20"  Width="120" Height="30"/>
-                <PasswordBox  Margin="5" FontSize="20" PasswordChar="*" Width="150" Height="30"/>
+                <TextBlock  Margin="5" Text="كلمة المرور" FontSize="20"  Width="120" Height="30"/>
+                <PasswordBox Name="passTxt" Margin="5" FontSize="20" PasswordChar="*" Width="150" Height="30"/>
             </StackPanel>
             <Button Name="LoginBtn" Margin="5" Content="دخول" Click="LoginBtn_Click" FontSize="20"/>
         </StackPanel>
