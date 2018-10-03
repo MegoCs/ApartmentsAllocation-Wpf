@@ -39,7 +39,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
 
@@ -73,7 +73,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
         private void UpdateClientDetailsControls(string Name,string phone,string national,string add) {
@@ -86,7 +86,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
 
@@ -110,7 +110,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
     }

@@ -370,7 +370,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\12.ico" />
-    <Resource Include="LogsFolder\Logs.txt" />
+    <Resource Include="LogsFolder\Logs.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

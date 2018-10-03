@@ -43,7 +43,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
         private void MigrationSlientWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -54,7 +54,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
 
@@ -67,7 +67,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
 
@@ -110,7 +110,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
         private void SelectDbFileBtn_Click(object sender, RoutedEventArgs e)
@@ -132,7 +132,7 @@ namespace ApartmentsAllocationHelper
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
     }
