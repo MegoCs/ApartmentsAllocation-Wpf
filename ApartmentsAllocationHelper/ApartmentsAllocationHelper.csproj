@@ -158,6 +158,11 @@
     <Compile Include="CancelOccupationWindow.xaml.cs">
       <DependentUpon>CancelOccupationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClientReportPerOccupation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientReportPerOccupation.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ClientsAndUnits.cs">
       <DependentUpon>ClientsAndUnits.xsd</DependentUpon>
     </Compile>
@@ -287,6 +292,7 @@
     <EmbeddedResource Include="ClientsAndUnitsReportForm.resx">
       <DependentUpon>ClientsAndUnitsReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientReportWithWarning.rdlc" />
     <EmbeddedResource Include="ClientsOccupation.rdlc" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -295,6 +301,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClientReportPerOccupation.xsc">
+      <DependentUpon>ClientReportPerOccupation.xsd</DependentUpon>
+    </None>
+    <None Include="ClientReportPerOccupation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClientReportPerOccupation.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ClientReportPerOccupation.xss">
+      <DependentUpon>ClientReportPerOccupation.xsd</DependentUpon>
+    </None>
     <None Include="ClientsAndUnits.xsc">
       <DependentUpon>ClientsAndUnits.xsd</DependentUpon>
     </None>
