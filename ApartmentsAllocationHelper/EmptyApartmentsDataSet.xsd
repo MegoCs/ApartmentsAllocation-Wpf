@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EmptyApartmentsDataSet" targetNamespace="http://tempuri.org/EmptyApartmentsDataSet.xsd" xmlns:mstns="http://tempuri.org/EmptyApartmentsDataSet.xsd" xmlns="http://tempuri.org/EmptyApartmentsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ApartmentDeliveryDbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ApartmentDeliveryDbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ApartmentsAllocationHelper.Properties.Settings.GlobalReference.Default.ApartmentDeliveryDbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ApartmentDeliveryDbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ApartmentTypesPerTower.ApartmentArea, Apartments.ApartmentName, Towers.TowerName, Floors.FloorNo, Apartments.ApartmentNumber, Apartments.ClientID
+FROM            Apartments INNER JOIN
+                         ApartmentTypesPerTower ON Apartments.TypeID = ApartmentTypesPerTower.ID INNER JOIN
+                         Floors ON Apartments.FloorID = Floors.ID INNER JOIN
+                         Towers ON ApartmentTypesPerTower.TowerID = Towers.ID AND Floors.TowerID = Towers.ID
+WHERE        (Apartments.ClientID IS NULL)
+ORDER BY Towers.TowerName, Floors.FloorNo, Apartments.ApartmentNumber</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ApartmentArea" DataSetColumn="ApartmentArea" />
+              <Mapping SourceColumn="ApartmentName" DataSetColumn="ApartmentName" />
+              <Mapping SourceColumn="TowerName" DataSetColumn="TowerName" />
+              <Mapping SourceColumn="FloorNo" DataSetColumn="FloorNo" />
+              <Mapping SourceColumn="ApartmentNumber" DataSetColumn="ApartmentNumber" />
+              <Mapping SourceColumn="ClientID" DataSetColumn="ClientID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EmptyApartmentsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EmptyApartmentsDataSet" msprop:Generator_UserDSName="EmptyApartmentsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ApartmentArea" msprop:Generator_ColumnVarNameInTable="columnApartmentArea" msprop:Generator_ColumnPropNameInRow="ApartmentArea" msprop:Generator_ColumnPropNameInTable="ApartmentAreaColumn" msprop:Generator_UserColumnName="ApartmentArea" type="xs:decimal" />
+              <xs:element name="ApartmentName" msprop:Generator_ColumnVarNameInTable="columnApartmentName" msprop:Generator_ColumnPropNameInRow="ApartmentName" msprop:Generator_ColumnPropNameInTable="ApartmentNameColumn" msprop:Generator_UserColumnName="ApartmentName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TowerName" msprop:Generator_ColumnVarNameInTable="columnTowerName" msprop:Generator_ColumnPropNameInRow="TowerName" msprop:Generator_ColumnPropNameInTable="TowerNameColumn" msprop:Generator_UserColumnName="TowerName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FloorNo" msprop:Generator_ColumnVarNameInTable="columnFloorNo" msprop:Generator_ColumnPropNameInRow="FloorNo" msprop:Generator_ColumnPropNameInTable="FloorNoColumn" msprop:Generator_UserColumnName="FloorNo" type="xs:decimal" />
+              <xs:element name="ApartmentNumber" msprop:Generator_ColumnVarNameInTable="columnApartmentNumber" msprop:Generator_ColumnPropNameInRow="ApartmentNumber" msprop:Generator_ColumnPropNameInTable="ApartmentNumberColumn" msprop:Generator_UserColumnName="ApartmentNumber" type="xs:decimal" />
+              <xs:element name="ClientID" msprop:Generator_ColumnVarNameInTable="columnClientID" msprop:Generator_ColumnPropNameInRow="ClientID" msprop:Generator_ColumnPropNameInTable="ClientIDColumn" msprop:Generator_UserColumnName="ClientID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

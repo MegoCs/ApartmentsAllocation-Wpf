@@ -180,6 +180,11 @@
     <Compile Include="ClientsViewGrid.xaml.cs">
       <DependentUpon>ClientsViewGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmptyApartmentsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmptyApartmentsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\Logger.cs" />
     <Compile Include="ManualPage.xaml.cs">
       <DependentUpon>ManualPage.xaml</DependentUpon>
@@ -293,6 +298,7 @@
       <DependentUpon>ClientsAndUnitsReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientReportWithWarning.rdlc" />
+    <EmbeddedResource Include="EmptyApartments.rdlc" />
     <EmbeddedResource Include="ClientsOccupation.rdlc" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -322,6 +328,17 @@
     </None>
     <None Include="ClientsAndUnits.xss">
       <DependentUpon>ClientsAndUnits.xsd</DependentUpon>
+    </None>
+    <None Include="EmptyApartmentsDataSet.xsc">
+      <DependentUpon>EmptyApartmentsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmptyApartmentsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmptyApartmentsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="EmptyApartmentsDataSet.xss">
+      <DependentUpon>EmptyApartmentsDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
