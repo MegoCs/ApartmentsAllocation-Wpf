@@ -113,12 +113,15 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
-                SetTowerDetails tDetails = new SetTowerDetails(Tlist);
-                tDetails.ShowDialog();
+                if (projectsComboBox.SelectedItem != null)
+                {
+                    SetTowerDetails tDetails = new SetTowerDetails(Tlist, projectsComboBox.SelectedItem as Projects);
+                    tDetails.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
     }

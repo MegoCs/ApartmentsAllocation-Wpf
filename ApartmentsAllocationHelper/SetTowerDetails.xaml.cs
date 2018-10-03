@@ -26,14 +26,17 @@ namespace ApartmentsAllocationHelper
         private Towers curTower;
         private List<ApartmentTypesPerTower> apartsList;
         private ApartmentTypesPerTower curType;
+        private Projects _curProj;
 
-        public SetTowerDetails(List<Towers> towersList)
+        public SetTowerDetails(List<Towers> towersList,Projects proj)
         {
             InitializeComponent();
 
             try
             {
+                _curProj = proj;
                 towersCombo.ItemsSource = towersList;
+                warningMessageTxt.Text = proj.WarningMessage;
             }
             catch (Exception ex)
             {
@@ -79,6 +82,7 @@ namespace ApartmentsAllocationHelper
                     curTower.TowerName = towerNameTxt.Text;
                     curType.ApartmentArea = int.Parse(typeAreaTxt.Text);
                     curTower.TowerMessage = towerMessage.Text;
+                    _curProj.WarningMessage = warningMessageTxt.Text;
                     using (_dbcontext = new ApartmentDeliveryDbContext())
                     {
                         _dbcontext.ApartmentTypesPerTower.Update(curType);
@@ -121,30 +125,6 @@ namespace ApartmentsAllocationHelper
             }
         }
 
-        private void SelectTowerImg_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (curTower != null)
-                {
-                    OpenFileDialog Img = new OpenFileDialog
-                    {
-                        Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
-                        Multiselect = false
-                    };
-                    if (Img.ShowDialog() == true)
-                    {
-                        curTower.TowerImage = File.ReadAllBytes(Img.FileName);
-                        towerImg.Source = new BitmapImage(new Uri(Img.FileName));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
-            }
-        }
-
         private void TowersCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -160,12 +140,12 @@ namespace ApartmentsAllocationHelper
 
                     if (curTower.TowerImage != null)
                     {
-                        var ms = new MemoryStream(curTower.TowerImage);
-                        var bitmapImg = new BitmapImage();
-                        bitmapImg.BeginInit();
-                        bitmapImg.StreamSource = ms;
-                        bitmapImg.EndInit();
-                        towerImg.Source = bitmapImg;
+                        //var ms = new MemoryStream(curTower.TowerImage);
+                        //var bitmapImg = new BitmapImage();
+                        //bitmapImg.BeginInit();
+                        //bitmapImg.StreamSource = ms;
+                        //bitmapImg.EndInit();
+                        ////towerImg.Source = bitmapImg;
                     }
                     using (_dbcontext = new ApartmentDeliveryDbContext())
                     {
@@ -197,6 +177,30 @@ namespace ApartmentsAllocationHelper
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name); 
+            }
+        }
+
+        private void saveProjectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(warningMessageTxt.Text))
+                {
+                    _curProj.WarningMessage = warningMessageTxt.Text;
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
+                    {
+                        _dbcontext.Projects.Update(_curProj);
+                        _dbcontext.SaveChanges();
+                        MessageBox.Show("تم حفظ الاقرار");
+                    }
+                }
+                else {
+                    MessageBox.Show("برجاء كتابة اقرار");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.Name);
             }
         }
     }
