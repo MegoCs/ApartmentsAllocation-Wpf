@@ -370,7 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\12.ico" />
-    <Resource Include="LogsFolder\Logs.txt">
+    <Resource Include="Logs.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Content Include="SqlServerTypes\readme.htm" />

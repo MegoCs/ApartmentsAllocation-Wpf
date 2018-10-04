@@ -41,7 +41,7 @@ namespace ApartmentsAllocationHelper
         private static void WriteLogToFile(string ErrorMessage)
         {
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable)) + @"\LogsFolder\Logs.txt";
+            string path = (System.IO.Path.GetDirectoryName(executable)) + @"\Logs.txt";
             using (StreamWriter sw = File.AppendText(path))
             {
                 sw.WriteLine(ErrorMessage);
