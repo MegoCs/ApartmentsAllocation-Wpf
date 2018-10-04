@@ -44,7 +44,7 @@ namespace ApartmentsAllocationHelper
             string path = (System.IO.Path.GetDirectoryName(executable)) + @"\Logs.txt";
             using (StreamWriter sw = File.AppendText(path))
             {
-                sw.WriteLine(ErrorMessage);
+                sw.WriteLine($"{ErrorMessage},");
             }
         }
     }

@@ -80,8 +80,7 @@ namespace ApartmentsAllocationHelper
                 {
                     OccupationWindow occ = new OccupationWindow(curApart);
                     occ.ShowDialog();
-                    TowersList_SelectionChanged(null, null);
-                    ApartmentsWithDetailsList_SelectionChanged(null, null);
+                    ApartmentsWithDetailsList.Items.Refresh();
                 }
             }
             catch (Exception ex)
