@@ -172,8 +172,28 @@ namespace ApartmentsAllocationHelper
 
         private void ClientReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClientOccupationReport report = new ClientOccupationReport();
-            report.ShowDialog();
+            try
+            {
+                ClientOccupationReport report = new ClientOccupationReport();
+                report.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
+            }
+        }
+
+        private void ApartsWithNoneOccupationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EmptyApartsReportForm emptyAparts = new EmptyApartsReportForm(pList);
+                emptyAparts.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
+            }
         }
     }
 }

@@ -880,18 +880,25 @@ namespace ApartmentsAllocationHelper.EmptyApartmentsDataSetTableAdapters {
 FROM            Apartments INNER JOIN
                          ApartmentTypesPerTower ON Apartments.TypeID = ApartmentTypesPerTower.ID INNER JOIN
                          Floors ON Apartments.FloorID = Floors.ID INNER JOIN
-                         Towers ON ApartmentTypesPerTower.TowerID = Towers.ID AND Floors.TowerID = Towers.ID
-WHERE        (Apartments.ClientID IS NULL)
+                         Towers ON ApartmentTypesPerTower.TowerID = Towers.ID AND Floors.TowerID = Towers.ID INNER JOIN Projects ON Towers.ProjectID=Projects.ID
+WHERE        (Apartments.ClientID IS NULL) and (Projects.ID=@projIDParam)
 ORDER BY Towers.TowerName, Floors.FloorNo, Apartments.ApartmentNumber";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projIDParam", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EmptyApartmentsDataSet.DataTable1DataTable dataTable) {
+        public virtual int Fill(EmptyApartmentsDataSet.DataTable1DataTable dataTable, string projIDParam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((projIDParam == null)) {
+                throw new global::System.ArgumentNullException("projIDParam");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(projIDParam));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -903,8 +910,14 @@ ORDER BY Towers.TowerName, Floors.FloorNo, Apartments.ApartmentNumber";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmptyApartmentsDataSet.DataTable1DataTable GetData() {
+        public virtual EmptyApartmentsDataSet.DataTable1DataTable GetData(string projIDParam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((projIDParam == null)) {
+                throw new global::System.ArgumentNullException("projIDParam");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(projIDParam));
+            }
             EmptyApartmentsDataSet.DataTable1DataTable dataTable = new EmptyApartmentsDataSet.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

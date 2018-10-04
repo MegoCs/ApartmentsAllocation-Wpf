@@ -146,6 +146,7 @@
             this.apartsWithNoneOccupationToolStripMenuItem.Name = "apartsWithNoneOccupationToolStripMenuItem";
             this.apartsWithNoneOccupationToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.apartsWithNoneOccupationToolStripMenuItem.Text = "الوحدات الغير مخصصة";
+            this.apartsWithNoneOccupationToolStripMenuItem.Click += new System.EventHandler(this.ApartsWithNoneOccupationToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 

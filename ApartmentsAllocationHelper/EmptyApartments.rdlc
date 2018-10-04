@@ -2,32 +2,29 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix2">
+      <Tablix Name="Tablix3">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.86458in</Width>
+              <Width>1.54688in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.89843in</Width>
+              <Width>1.39062in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.82292in</Width>
+              <Width>1.39062in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.20051in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.4375in</Width>
+              <Width>1.64062in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.28125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox22">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -36,7 +33,7 @@
                             <TextRun>
                               <Value>المساحة</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -46,7 +43,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -62,7 +59,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
+                    <Textbox Name="Textbox13">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -71,7 +68,7 @@
                             <TextRun>
                               <Value>الشقة</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -81,7 +78,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -97,7 +94,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox8">
+                    <Textbox Name="Textbox15">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -106,7 +103,7 @@
                             <TextRun>
                               <Value>رقم الدور</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -116,7 +113,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -132,16 +129,16 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox10">
+                    <Textbox Name="Textbox20">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>البرج</Value>
+                              <Value>اسم البرج</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -151,42 +148,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>م</Value>
-                              <Style>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -215,7 +177,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ApartmentArea.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -247,7 +211,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ApartmentName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -279,7 +245,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!FloorNo.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -311,7 +279,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!TowerName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -320,38 +290,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>TowerName</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -375,7 +313,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -384,22 +321,16 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Details">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!TowerName.Value</GroupExpression>
-                  <GroupExpression>=Fields!FloorNo.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
+              <Group Name="Details" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
-        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.22792in</Top>
-        <Left>0.67324in</Left>
-        <Height>0.5in</Height>
-        <Width>6.22394in</Width>
+        <Top>0.21778in</Top>
+        <Left>0.79041in</Left>
+        <Height>0.53125in</Height>
+        <Width>5.96875in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -613,7 +544,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>EmptyApartmentsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\MegoCs\source\repos\ApartmentsAllocationHelper\ApartmentsAllocationHelper\EmptyApartmentsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Mego\ApartmentsAllocation-Wpf\ApartmentsAllocationHelper\EmptyApartmentsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
