@@ -38,7 +38,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox23">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -74,13 +73,12 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox24">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="الدور "+First(Fields!FloorNo.Value, "DataSet1")</Value>
+                <Value>=First(Fields!FloorNo.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -93,8 +91,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>1.00869in</Top>
-        <Left>4.57489in</Left>
+        <Top>0.99481in</Top>
+        <Left>3.16863in</Left>
         <Height>0.35417in</Height>
         <Width>1.15625in</Width>
         <ZIndex>2</ZIndex>
@@ -129,8 +127,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>0.58507in</Top>
-        <Left>4.57489in</Left>
+        <Top>0.57119in</Top>
+        <Left>3.16863in</Left>
         <Height>0.35417in</Height>
         <Width>1.15625in</Width>
         <ZIndex>3</ZIndex>
@@ -146,13 +144,12 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox26">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="م "+First(Fields!ApartmentArea.Value, "DataSet1")</Value>
+                <Value>=First(Fields!ApartmentArea.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -165,10 +162,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>1.00869in</Top>
-        <Left>2.98114in</Left>
+        <Top>0.99481in</Top>
+        <Left>4.49613in</Left>
         <Height>0.35417in</Height>
-        <Width>1.15625in</Width>
+        <Width>1.42708in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -201,8 +198,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>0.58507in</Top>
-        <Left>2.71031in</Left>
+        <Top>0.57119in</Top>
+        <Left>4.49613in</Left>
         <Height>0.35417in</Height>
         <Width>1.42708in</Width>
         <ZIndex>5</ZIndex>
@@ -237,9 +234,9 @@
           </Paragraph>
         </Paragraphs>
         <Top>0.16146in</Top>
-        <Left>4.29822in</Left>
+        <Left>3.71031in</Left>
         <Height>0.35417in</Height>
-        <Width>2.9922in</Width>
+        <Width>3.58011in</Width>
         <ZIndex>6</ZIndex>
         <ToolTip>انقر لعرض او اخفاء صورة الوحدة</ToolTip>
         <Style>
@@ -254,7 +251,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox29">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -262,7 +258,7 @@
               <TextRun>
                 <Value>=First(Fields!OccupationDate.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>18pt</FontSize>
+                  <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -273,10 +269,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>0.16146in</Top>
-        <Left>1.62697in</Left>
+        <Top>0.17534in</Top>
+        <Left>0.47072in</Left>
         <Height>0.35417in</Height>
-        <Width>2.39583in</Width>
+        <Width>2.85416in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -309,10 +305,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.0052in</Top>
-        <Left>6.58208in</Left>
+        <Top>1.85591in</Top>
+        <Left>6.13417in</Left>
         <Height>0.35417in</Height>
-        <Width>0.70833in</Width>
+        <Width>1.15623in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -345,8 +341,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.0052in</Top>
-        <Left>2.98114in</Left>
+        <Top>1.85591in</Top>
+        <Left>2.98113in</Left>
         <Height>0.35417in</Height>
         <Width>2.94208in</Width>
         <ZIndex>9</ZIndex>
@@ -381,8 +377,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.42882in</Top>
-        <Left>3.71031in</Left>
+        <Top>2.27953in</Top>
+        <Left>3.7103in</Left>
         <Height>0.35417in</Height>
         <Width>2.2129in</Width>
         <ZIndex>10</ZIndex>
@@ -417,8 +413,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.42882in</Top>
-        <Left>6.13416in</Left>
+        <Top>2.27953in</Top>
+        <Left>6.13415in</Left>
         <Height>0.35417in</Height>
         <Width>1.15625in</Width>
         <ZIndex>11</ZIndex>
@@ -452,10 +448,10 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>1.58159in</Top>
-        <Left>5.73572in</Left>
+        <Top>1.4323in</Top>
+        <Left>5.11071in</Left>
         <Height>0.35417in</Height>
-        <Width>1.5547in</Width>
+        <Width>2.1797in</Width>
         <ZIndex>12</ZIndex>
         <ToolTip>انقر لعرض او الغاء اقرار العميل</ToolTip>
         <Style>
@@ -489,8 +485,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.85243in</Top>
-        <Left>6.13417in</Left>
+        <Top>2.70314in</Top>
+        <Left>6.13416in</Left>
         <Height>0.35417in</Height>
         <Width>1.15625in</Width>
         <ZIndex>13</ZIndex>
@@ -525,8 +521,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.85243in</Top>
-        <Left>3.71031in</Left>
+        <Top>2.70314in</Top>
+        <Left>3.7103in</Left>
         <Height>0.35417in</Height>
         <Width>2.21291in</Width>
         <ZIndex>14</ZIndex>
@@ -542,7 +538,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox37">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -561,8 +556,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>6.86979in</Top>
-        <Left>6.13416in</Left>
+        <Top>6.47395in</Top>
+        <Left>6.13417in</Left>
         <Height>0.35417in</Height>
         <Width>1.15625in</Width>
         <ZIndex>15</ZIndex>
@@ -581,7 +576,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox38">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -600,10 +594,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.2934in</Top>
-        <Left>2.43624in</Left>
+        <Top>6.86979in</Top>
+        <Left>2.5372in</Left>
         <Height>0.90278in</Height>
-        <Width>4.63863in</Width>
+        <Width>4.7532in</Width>
         <ZIndex>16</ZIndex>
         <Visibility>
           <ToggleItem>WarningDetailsToggelTxt</ToggleItem>
@@ -620,7 +614,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox39">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -639,14 +632,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.2934in</Top>
-        <Left>0.24874in</Left>
+        <Top>6.86979in</Top>
+        <Left>0.3497in</Left>
         <Height>0.35417in</Height>
         <Width>1.95113in</Width>
         <ZIndex>17</ZIndex>
-        <Visibility>
-          <ToggleItem>WarningDetailsToggelTxt</ToggleItem>
-        </Visibility>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -659,7 +649,6 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox40">
-        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
@@ -678,14 +667,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.84202in</Top>
-        <Left>0.24874in</Left>
+        <Top>7.41841in</Top>
+        <Left>0.3497in</Left>
         <Height>0.35417in</Height>
         <Width>1.95113in</Width>
         <ZIndex>18</ZIndex>
-        <Visibility>
-          <ToggleItem>WarningDetailsToggelTxt</ToggleItem>
-        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
@@ -702,13 +688,12 @@
         <Value>=First(Fields!ApartmentImage.Value, "DataSet1")</Value>
         <MIMEType>image/bmp</MIMEType>
         <Sizing>Fit</Sizing>
-        <Top>3.36632in</Top>
+        <Top>3.12676in</Top>
         <Left>0.24875in</Left>
-        <Height>3.43403in</Height>
+        <Height>3.13195in</Height>
         <Width>7.04166in</Width>
         <ZIndex>19</ZIndex>
         <Visibility>
-          <Hidden>true</Hidden>
           <ToggleItem>ImgToggelTxt</ToggleItem>
         </Visibility>
         <Style>
@@ -718,7 +703,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>8.40625in</Height>
+    <Height>7.88542in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>

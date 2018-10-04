@@ -22,10 +22,11 @@ namespace ApartmentsAllocationHelper
     {
         List<Clients> clientsList;
         ApartmentDeliveryDbContext _dbContext;
-
-        public ClientsViewGrid()
+        public Clients SelectedClient { get; set; }
+        public ClientsViewGrid(bool returnValueBtnVisibility)
         {
             InitializeComponent();
+            returnSelectedBtn.Visibility = (returnValueBtnVisibility == true)?Visibility.Visible:Visibility.Collapsed;
             try
             {
                 using (_dbContext = new ApartmentDeliveryDbContext())
@@ -65,6 +66,15 @@ namespace ApartmentsAllocationHelper
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
+        }
+
+        private void ReturnSelectedBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedClient = (Clients)clientsDataView.SelectedItem;
+            if (SelectedClient != null)
+                this.Close();
+            else
+                MessageBox.Show("لم يتم اختيار عميل");
         }
     }
 }

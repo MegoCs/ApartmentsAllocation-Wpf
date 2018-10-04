@@ -10,6 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
+
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" FlowDirection="RightToLeft">
@@ -19,9 +21,10 @@
             <Label HorizontalAlignment="Left"  Content="الرقم القومي" Height="40" Margin="20" FontSize="16" FontWeight="Bold"/>
             <TextBox Name="clientNationalTxt" HorizontalAlignment="Left" Width="200" TextAlignment="Center" Height="35" Margin="20" Text="" FontSize="16" FontWeight="Bold" />
             <Button Name="searchBtn" Content="بحث" Height="40" Width="60" FontSize="18" FontWeight="Bold" Click="SearchBtn_Click"/>
+            
         </StackPanel>
 
-        <DataGrid CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" SelectionUnit="Cell" AutoGenerateColumns="False"  AlternatingRowBackground="Gainsboro"  AlternationCount="2"  Name="clientsDataView" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" VerticalAlignment="Stretch" ItemsSource="{Binding clientsList}" FontSize="16" FontWeight="Bold" Background="#FFE8DDDD">
+        <DataGrid SelectionMode="Single" SelectionUnit="FullRow" SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" AutoGenerateColumns="False"  AlternatingRowBackground="Gainsboro"  AlternationCount="2"  Name="clientsDataView" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" VerticalAlignment="Stretch" ItemsSource="{Binding clientsList}" FontSize="16" FontWeight="Bold" Background="#FFE8DDDD">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="الاسم" Width="auto" Binding="{Binding ClientName}"/>
                 <DataGridTextColumn Header="الرقم القومي" Width="auto" Binding="{Binding NationalId}"/>
@@ -29,5 +32,6 @@
                 <DataGridTextColumn Header="العنوان" Width="auto" Binding="{Binding ClientAddress}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Name="returnSelectedBtn" Grid.Row="2" Content="عودة بالقيمة" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left" Click="ReturnSelectedBtn_Click"/>
     </Grid>
 </Window>

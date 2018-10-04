@@ -56,7 +56,7 @@ namespace ApartmentsAllocationHelper
                         _curClient = _dbContext.Clients.SingleOrDefault(x => x.NationalId == searchClientNationalTxt.Text);
                         if (!(_curClient is null))
                         {
-                            UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, "Address");
+                            UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, _curClient.ClientAddress);
                             ConfirmOccupation.IsEnabled = true;
                         }
                         else
@@ -112,6 +112,16 @@ namespace ApartmentsAllocationHelper
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
+        }
+
+        private void ShowClientsGrid_Click(object sender, RoutedEventArgs e)
+        {
+            ClientsViewGrid clients = new ClientsViewGrid(true);
+            clients.ShowDialog();
+            clientNationalIdTxt.Text = clients.SelectedClient.NationalId;
+            _curClient = clients.SelectedClient;
+            UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId,_curClient.ClientAddress);
+            ConfirmOccupation.IsEnabled = true;
         }
     }
 }

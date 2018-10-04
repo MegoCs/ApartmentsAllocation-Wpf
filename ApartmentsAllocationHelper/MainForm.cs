@@ -135,7 +135,7 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
-                ClientsViewGrid view = new ClientsViewGrid();
+                ClientsViewGrid view = new ClientsViewGrid(false);
                 view.ShowDialog();
             }
             catch (Exception ex)
@@ -168,6 +168,12 @@ namespace ApartmentsAllocationHelper
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
             }
+        }
+
+        private void ClientReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientOccupationReport report = new ClientOccupationReport();
+            report.ShowDialog();
         }
     }
 }

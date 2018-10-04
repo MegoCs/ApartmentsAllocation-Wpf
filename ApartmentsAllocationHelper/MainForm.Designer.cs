@@ -48,9 +48,9 @@
             this.addClientDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cancelOccupationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.مساعدةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +157,7 @@
             this.clientReportToolStripMenuItem.Name = "clientReportToolStripMenuItem";
             this.clientReportToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.clientReportToolStripMenuItem.Text = "تقرير تخصيص وحدة لعميل";
+            this.clientReportToolStripMenuItem.Click += new System.EventHandler(this.ClientReportToolStripMenuItem_Click);
             // 
             // clientsDataToolStripMenuItem
             // 
@@ -201,16 +202,6 @@
             this.cancelOccupationToolStripMenuItem.Text = "الغاء حجز او تخصيص عميل";
             this.cancelOccupationToolStripMenuItem.Click += new System.EventHandler(this.CancelOccupationToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 276);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // مساعدةToolStripMenuItem
             // 
             this.مساعدةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,6 +216,16 @@
             this.ManualToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.ManualToolStripMenuItem.Text = "طريقة الاستخدام";
             this.ManualToolStripMenuItem.Click += new System.EventHandler(this.ManualToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(245, 276);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
