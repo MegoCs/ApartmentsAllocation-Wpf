@@ -55,8 +55,10 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
-                _dbContext = new ApartmentDeliveryDbContext();
-                pList = _dbContext.Projects.Include(x => x.Towers).ToList();
+                using (_dbContext= new ApartmentDeliveryDbContext())
+                {
+                    pList = _dbContext.Projects.Include(x => x.Towers).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -70,6 +72,7 @@ namespace ApartmentsAllocationHelper
             {
                 ManageProjectSelection m = new ManageProjectSelection(pList);
                 m.ShowDialog();
+                projectLoaderAgent.RunWorkerAsync();
             }
             catch (Exception ex)
             {
@@ -111,6 +114,7 @@ namespace ApartmentsAllocationHelper
             {
                 AddTowersToProjectWindow obj = new AddTowersToProjectWindow();
                 obj.ShowDialog();
+                projectLoaderAgent.RunWorkerAsync();
             }
             catch (Exception ex)
             {
