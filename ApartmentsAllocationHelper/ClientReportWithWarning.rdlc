@@ -752,21 +752,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image2">
-          <Source>Embedded</Source>
-          <Value>ID12</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.04042in</Top>
-          <Left>0.24875in</Left>
-          <Height>1.01735in</Height>
-          <Width>0.79167in</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="Textbox19">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -791,7 +776,7 @@
           <Left>3.87113in</Left>
           <Height>0.35417in</Height>
           <Width>2.05208in</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -827,7 +812,7 @@
           <Left>6.13416in</Left>
           <Height>0.35417in</Height>
           <Width>1.15625in</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -863,7 +848,7 @@
           <Left>0.24875in</Left>
           <Height>0.4825in</Height>
           <Width>7.04166in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>

@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.80209in</Width>
+              <Width>0.73091in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.86458in</Width>
+              <Width>0.7934in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.89843in</Width>
+              <Width>0.82725in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.82292in</Width>
+              <Width>1.75174in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.20051in</Width>
+              <Width>2.12933in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.4375in</Width>
+              <Width>0.36632in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -412,7 +412,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=RowNumber(nothing)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -452,7 +452,9 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
+              <FixedData>true</FixedData>
               <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
             </TablixMember>
             <TablixMember>
               <Group Name="Details" />
@@ -463,9 +465,9 @@
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.22792in</Top>
-        <Left>0.26438in</Left>
+        <Left>0.4701in</Left>
         <Height>0.5in</Height>
-        <Width>7.02603in</Width>
+        <Width>6.59895in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -473,7 +475,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.15625in</Height>
+    <Height>4.92708in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
@@ -481,7 +483,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>7.56124in</Width>
+  <Width>7.39457in</Width>
   <Page>
     <PageHeader>
       <Height>1.79139in</Height>
@@ -522,21 +524,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image2">
-          <Source>Embedded</Source>
-          <Value>ID12</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.04042in</Top>
-          <Left>0.24875in</Left>
-          <Height>1.01735in</Height>
-          <Width>0.79167in</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="Textbox19">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -546,22 +533,22 @@
                 <TextRun>
                   <Value>=First(Fields!TowerName.Value, "DataSet1")</Value>
                   <Style>
-                    <FontSize>18pt</FontSize>
+                    <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Right</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
           <Top>0.7036in</Top>
-          <Left>3.87113in</Left>
+          <Left>4.45446in</Left>
           <Height>0.35417in</Height>
-          <Width>2.05208in</Width>
-          <ZIndex>2</ZIndex>
+          <Width>1.46875in</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -597,7 +584,7 @@
           <Left>6.13416in</Left>
           <Height>0.35417in</Height>
           <Width>1.15625in</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -623,17 +610,18 @@
                   </Style>
                 </TextRun>
               </TextRuns>
+              <ListLevel>1</ListLevel>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
           <Top>1.23945in</Top>
           <Left>0.24875in</Left>
-          <Height>0.4825in</Height>
+          <Height>0.42in</Height>
           <Width>7.04166in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>Solid</Style>
@@ -654,7 +642,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.64583in</Height>
+      <Height>0.60416in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -740,7 +728,7 @@
     <LeftMargin>0.4in</LeftMargin>
     <RightMargin>0.4in</RightMargin>
     <TopMargin>0.4in</TopMargin>
-    <BottomMargin>0.4in</BottomMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1087,6 +1075,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>da490231-e1fc-4fe1-a740-e5e5e9914d6f</rd:ReportID>
 </Report>

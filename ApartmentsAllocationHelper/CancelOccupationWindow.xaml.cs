@@ -48,11 +48,12 @@ namespace ApartmentsAllocationHelper
                                 _dbcontext.SaveChanges();
                                 MessageBox.Show("تم الغاء تخصيص الوحدة");
                                 clientNationalTxt.Text = "";
-                            }
+                            }else
+                                MessageBox.Show("لا توجد غرفة محجوزة لهذا الرقم");
                         }
                         else
                         {
-                            MessageBox.Show("لا توجد غرفة محجوزة لهذا الرقم");
+                            MessageBox.Show("لا توجد بيانات عضو بهذا الرقم");
                         }
                     }
                 }
@@ -64,6 +65,21 @@ namespace ApartmentsAllocationHelper
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
+            }
+        }
+
+        private void ShowClientsGrid_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ClientsViewGrid clients = new ClientsViewGrid(true);
+                clients.ShowDialog();
+                if(clients.SelectedClient!=null)
+                clientNationalTxt.Text = clients.SelectedClient.NationalId;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
             }
         }
     }

@@ -26,16 +26,46 @@ namespace ApartmentsAllocationHelper
         private ApartmentDeliveryDbContext _dbContext;
         Apartments curApart;
         Towers curTower;
+        private BackgroundWorker reloadDataWorker;
+
         public ProjectManagmentWindow(List<Towers>  Tlist)
         {
             InitializeComponent();
             try
             {
                 TowersList.ItemsSource = Tlist;
+                reloadDataWorker = new BackgroundWorker();
+                reloadDataWorker.DoWork += ReloadDataWorker_DoWork;
+                reloadDataWorker.RunWorkerCompleted += ReloadDataWorker_RunWorkerCompleted;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
+            }
+        }
+
+        private void ReloadDataWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ApartmentsWithDetailsList.ItemsSource = e.Result as List<Apartments>; 
+            ApartmentsWithDetailsList.Items.Refresh();
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
+            view.GroupDescriptions.Add(groupDescription);
+        }
+
+        private void ReloadDataWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (_dbContext = new ApartmentDeliveryDbContext())
+            {
+                e.Result = _dbContext.Apartments
+                          .Include(A => A.Floor)
+                          .Include(A => A.Client)
+                          .Include(A => A.Type)
+                          .ThenInclude(T => T.Tower)
+                          .Where(A => A.Type.TowerId == curTower.Id)
+                          .OrderBy(A => A.Floor.FloorNo)
+                          .ThenByDescending(A => A.ApartmentNumber)
+                          .ToList();
             }
         }
 
@@ -81,6 +111,7 @@ namespace ApartmentsAllocationHelper
                     OccupationWindow occ = new OccupationWindow(curApart);
                     occ.ShowDialog();
                     ApartmentsWithDetailsList.Items.Refresh();
+                    reloadDataWorker.RunWorkerAsync();
                 }
             }
             catch (Exception ex)

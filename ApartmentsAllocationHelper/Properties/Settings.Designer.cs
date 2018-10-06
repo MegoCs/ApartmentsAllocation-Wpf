@@ -26,7 +26,8 @@ namespace ApartmentsAllocationHelper.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Server=tcp:sqlserverinstance01.database.windows.net,1433;Initial Catalog=ApartmentDeliveryDb;Persist Security Info=False;User ID=sqlserverinstance01Admin;Password=01ServerAdmin01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ApartmentDeliveryDb;Integrated S" +
+            "ecurity=True")]
         public string ApartmentDeliveryDbConnectionString {
             get {
                 return ((string)(this["ApartmentDeliveryDbConnectionString"]));
