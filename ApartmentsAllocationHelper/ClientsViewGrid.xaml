@@ -24,11 +24,11 @@
             
         </StackPanel>
 
-        <DataGrid SelectionMode="Single" SelectionUnit="FullRow" SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" AutoGenerateColumns="False"  AlternatingRowBackground="Gainsboro"  AlternationCount="2"  Name="clientsDataView" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" VerticalAlignment="Stretch" ItemsSource="{Binding clientsList}" FontSize="16" FontWeight="Bold" Background="#FFE8DDDD">
+        <DataGrid SelectionMode="Single" SelectionUnit="FullRow" SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" CanUserAddRows="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" AutoGenerateColumns="False"  AlternatingRowBackground="Gainsboro"  AlternationCount="2"  Name="clientsDataView" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" VerticalAlignment="Stretch" ItemsSource="{Binding clientsList}" FontSize="16" FontWeight="Bold" Background="#FFE8DDDD" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="الاسم" Width="auto" Binding="{Binding ClientName}"/>
                 <DataGridTextColumn Header="الرقم القومي" Width="auto" Binding="{Binding NationalId}"/>
-                <DataGridTextColumn Header="التليفون" Width="auto" Binding="{Binding NationalId}"/>
+                <DataGridTextColumn Header="التليفون" Width="auto" Binding="{Binding PhoneNumber}"/>
                 <DataGridTextColumn Header="العنوان" Width="auto" Binding="{Binding ClientAddress}"/>
             </DataGrid.Columns>
         </DataGrid>

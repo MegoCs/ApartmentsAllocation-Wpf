@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmptyApartsReportForm));
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmptyApartmentsDataSet = new ApartmentsAllocationHelper.EmptyApartmentsDataSet();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,10 +109,11 @@
             this.Controls.Add(this.projectsComboBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "EmptyApartsReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmptyApartsReportForm";
+            this.Text = "شاشة تقرير الوحدات الغير مخصصة";
             this.Load += new System.EventHandler(this.EmptyApartsReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmptyApartmentsDataSet)).EndInit();

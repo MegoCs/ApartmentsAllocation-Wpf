@@ -116,12 +116,26 @@ namespace ApartmentsAllocationHelper
 
         private void ShowClientsGrid_Click(object sender, RoutedEventArgs e)
         {
-            ClientsViewGrid clients = new ClientsViewGrid(true);
-            clients.ShowDialog();
-            clientNationalIdTxt.Text = clients.SelectedClient.NationalId;
-            _curClient = clients.SelectedClient;
-            UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId,_curClient.ClientAddress);
-            ConfirmOccupation.IsEnabled = true;
+            try
+            {
+                ClientsViewGrid clients = new ClientsViewGrid(true);
+                clients.ShowDialog();
+                if (clients.SelectedClient != null)
+                {
+                    clientNationalIdTxt.Text = clients.SelectedClient.NationalId;
+                    searchClientNationalTxt.Text = clients.SelectedClient.NationalId;
+                    _curClient = clients.SelectedClient;
+                    UpdateClientDetailsControls(_curClient.ClientName, _curClient.PhoneNumber, _curClient.NationalId, _curClient.ClientAddress);
+                    ConfirmOccupation.IsEnabled = true;
+                }
+                else
+                    MessageBox.Show("لم يتم اختيار عميل");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
+            }
         }
     }
 }
