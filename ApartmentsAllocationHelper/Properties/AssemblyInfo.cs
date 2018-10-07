@@ -7,10 +7,10 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ApartmentsAllocationHelper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("T5ses Application")]
+[assembly: AssemblyDescription("an app that help manage the process of apartments allocation.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("MegoCs")]
 [assembly: AssemblyProduct("ApartmentsAllocationHelper")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

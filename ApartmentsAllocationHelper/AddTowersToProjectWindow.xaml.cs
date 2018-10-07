@@ -117,6 +117,7 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
+                towerToBeAdd = new Towers();
                 towerNameTxt.Text = "";
                 FloorsNumTxt.Text = "";
                 ApartmentPerFloorNumTxt.Text = "";
