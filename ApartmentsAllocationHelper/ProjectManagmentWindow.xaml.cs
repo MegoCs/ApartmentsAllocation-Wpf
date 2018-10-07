@@ -37,6 +37,7 @@ namespace ApartmentsAllocationHelper
                 reloadDataWorker = new BackgroundWorker();
                 reloadDataWorker.DoWork += ReloadDataWorker_DoWork;
                 reloadDataWorker.RunWorkerCompleted += ReloadDataWorker_RunWorkerCompleted;
+
             }
             catch (Exception ex)
             {
@@ -51,6 +52,7 @@ namespace ApartmentsAllocationHelper
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
             PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
             view.GroupDescriptions.Add(groupDescription);
+
         }
 
         private void ReloadDataWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -87,12 +89,12 @@ namespace ApartmentsAllocationHelper
                                          .OrderBy(A => A.Floor.FloorNo)
                                          .ThenByDescending(A => A.ApartmentNumber)
                                          .ToList();
-                    ApartmentsWithDetailsList.Height = (this.Height / 5) * 4;
-
 
                     CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ApartmentsWithDetailsList.ItemsSource);
                     PropertyGroupDescription groupDescription = new PropertyGroupDescription("Floor.FloorNo");
-                    view.GroupDescriptions.Add(groupDescription); 
+                    view.GroupDescriptions.Add(groupDescription);
+    
+
                 }
 
             }

@@ -77,18 +77,14 @@ namespace ApartmentsAllocationHelper
         {
             try
             {
-                if (curType != null && curTower != null && !string.IsNullOrEmpty(typeAreaTxt.Text))
+                if (curType != null && !string.IsNullOrEmpty(typeAreaTxt.Text))
                 {
-                    curTower.TowerName = towerNameTxt.Text;
                     curType.ApartmentArea = int.Parse(typeAreaTxt.Text);
-                    curTower.TowerMessage = towerMessage.Text;
-                    _curProj.WarningMessage = warningMessageTxt.Text;
                     using (_dbcontext = new ApartmentDeliveryDbContext())
                     {
                         _dbcontext.ApartmentTypesPerTower.Update(curType);
-                        _dbcontext.Towers.Update(curTower);
                         _dbcontext.SaveChanges();
-                        MessageBox.Show("تم حفظ البيانات");
+                        MessageBox.Show("تم تعديل بيانات الوحدة");
                     }
                 }
                 else
@@ -97,6 +93,33 @@ namespace ApartmentsAllocationHelper
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
+            }
+
+        }
+        private void SaveTowerDetailsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (curTower != null)
+                {
+                    curTower.TowerName = towerNameTxt.Text;
+                    curTower.TowerMessage = towerMessage.Text;
+
+                    using (_dbcontext = new ApartmentDeliveryDbContext())
+                    {
+                        _dbcontext.Towers.Update(curTower);
+                        _dbcontext.SaveChanges();
+                        MessageBox.Show("تم تعديل تفاصيل البرج");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("برجاء اعادة اختيار برج");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
             }
 
         }
@@ -118,6 +141,9 @@ namespace ApartmentsAllocationHelper
                         curTypeImg.Source = new BitmapImage(new Uri(Img.FileName));
                     }
                 }
+                else {
+                    MessageBox.Show("برجاء اختيار نوع وحدة");
+                }
             }
             catch (Exception ex)
             {
@@ -137,21 +163,12 @@ namespace ApartmentsAllocationHelper
                         towerMessage.Text = curTower.TowerMessage;
                     else
                         towerMessage.Text = "";
-
-                    if (curTower.TowerImage != null)
-                    {
-                        //var ms = new MemoryStream(curTower.TowerImage);
-                        //var bitmapImg = new BitmapImage();
-                        //bitmapImg.BeginInit();
-                        //bitmapImg.StreamSource = ms;
-                        //bitmapImg.EndInit();
-                        ////towerImg.Source = bitmapImg;
-                    }
                     using (_dbcontext = new ApartmentDeliveryDbContext())
                     {
                         apartsList = _dbcontext.ApartmentTypesPerTower.Where(x => x.TowerId == towersCombo.SelectedValue.ToString()).OrderBy(x => x.TagNumber).ToList();
                     }
                     apartmentTypesListview.ItemsSource = apartsList;
+                    apartmentTypesListview.Items.Refresh();
                 }
             }
             catch (Exception ex)
@@ -180,7 +197,7 @@ namespace ApartmentsAllocationHelper
             }
         }
 
-        private void saveProjectBtn_Click(object sender, RoutedEventArgs e)
+        private void SaveProjectBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -203,5 +220,7 @@ namespace ApartmentsAllocationHelper
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name);
             }
         }
+
+ 
     }
 }
