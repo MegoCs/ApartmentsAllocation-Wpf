@@ -596,7 +596,7 @@
         <rd:DefaultName>Textbox20</rd:DefaultName>
         <Top>6.86979in</Top>
         <Left>2.5372in</Left>
-        <Height>0.90278in</Height>
+        <Height>1.1632in</Height>
         <Width>4.7532in</Width>
         <ZIndex>16</ZIndex>
         <Visibility>
@@ -619,7 +619,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>/ توقيع العميل</Value>
+                <Value>توقيع العميل
+/ المقر بما فيه </Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -632,9 +633,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>6.86979in</Top>
+        <Top>6.85936in</Top>
         <Left>0.3497in</Left>
-        <Height>0.35417in</Height>
+        <Height>0.75001in</Height>
         <Width>1.95113in</Width>
         <ZIndex>17</ZIndex>
         <Style>
@@ -667,7 +668,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>7.41841in</Top>
+        <Top>7.67882in</Top>
         <Left>0.3497in</Left>
         <Height>0.35417in</Height>
         <Width>1.95113in</Width>
@@ -703,7 +704,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>7.88542in</Height>
+    <Height>8.1875in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
