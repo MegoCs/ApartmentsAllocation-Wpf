@@ -102,7 +102,10 @@ namespace ApartmentsAllocationHelper
                         _curApart.ClientId = _curClient.Id;
                         _curApart.OccupationDate = DateTime.Now;
                         _dbContext.Apartments.Update(_curApart);
-                        _dbContext.SaveChangesAsync();
+                        // SaveChangesAsync was used without awaiting which
+                        // could lead to uncommitted changes. Use synchronous
+                        // SaveChanges to ensure the update completes.
+                        _dbContext.SaveChanges();
                         MessageBox.Show("تم تأكيد العملية");
                         this.Close();
                     }
