@@ -1,0 +1,22 @@
+name: .NET Framework Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Restore NuGet packages
+      run: nuget restore ApartmentsAllocationHelper.sln
+
+    - name: Build solution
+      run: msbuild ApartmentsAllocationHelper.sln /p:Configuration=Release /p:Platform="Any CPU"
