@@ -22,7 +22,7 @@ namespace ApartmentsAllocationHelper
         {
             InitializeComponent();
 
-            #region Config BackGroundWorker To Load Projects List
+            #region Config BackgroundWorker To Load Projects List
             try
             {
                 projectLoaderAgent = new BackgroundWorker();

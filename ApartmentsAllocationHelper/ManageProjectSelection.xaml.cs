@@ -35,7 +35,7 @@ namespace ApartmentsAllocationHelper
             {
                 projectsComboBox.ItemsSource = pList;
 
-                #region Config BackGroundWorker To Load Data
+                #region Config BackgroundWorker To Load Data
                 projectDetailsLoaderAgent = new BackgroundWorker();
                 projectDetailsLoaderAgent.DoWork += ProjectDetailsLoaderAgent_DoWork;
                 projectDetailsLoaderAgent.RunWorkerCompleted += ProjectDetailsLoaderAgent_RunWorkerCompleted;
