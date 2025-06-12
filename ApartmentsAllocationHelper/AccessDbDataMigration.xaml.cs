@@ -26,7 +26,7 @@ namespace ApartmentsAllocationHelper
     public partial class AccessDbDataMigration : Window
     {
         ApartmentDeliveryDbContext _dbContext = null;
-        BackgroundWorker MigrationSlientWorker;
+        BackgroundWorker MigrationSilentWorker;
 
         public string DbLocation { get; private set; }
 
@@ -35,18 +35,18 @@ namespace ApartmentsAllocationHelper
             InitializeComponent();
             try
             {
-                MigrationSlientWorker = new BackgroundWorker();
-                MigrationSlientWorker.DoWork += MigrationSlientWorker_DoWork;
-                MigrationSlientWorker.RunWorkerCompleted += MigrationSlientWorker_RunWorkerCompleted;
-                MigrationSlientWorker.WorkerReportsProgress = true;
-                MigrationSlientWorker.ProgressChanged += MigrationSlientWorker_ProgressChanged;
+                MigrationSilentWorker = new BackgroundWorker();
+                MigrationSilentWorker.DoWork += MigrationSilentWorker_DoWork;
+                MigrationSilentWorker.RunWorkerCompleted += MigrationSilentWorker_RunWorkerCompleted;
+                MigrationSilentWorker.WorkerReportsProgress = true;
+                MigrationSilentWorker.ProgressChanged += MigrationSilentWorker_ProgressChanged;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("حدث خطأ في البيانات"); Logger.WriteLog($"Exception: {ex.Message} InnerException: {ex.InnerException}", this.GetType().Name); 
             }
         }
-        private void MigrationSlientWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void MigrationSilentWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace ApartmentsAllocationHelper
             }
         }
 
-        private void MigrationSlientWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void MigrationSilentWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace ApartmentsAllocationHelper
             }
         }
 
-        private void MigrationSlientWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void MigrationSilentWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace ApartmentsAllocationHelper
                             });
                         }
                         float progress = ((currentChecked + 1) * 100) / clientsNum;
-                        MigrationSlientWorker.ReportProgress(Convert.ToInt32(progress));
+                        MigrationSilentWorker.ReportProgress(Convert.ToInt32(progress));
                     }
                     dbHandler.myConnection.Close();
                     _dbContext.SaveChanges();
@@ -126,7 +126,7 @@ namespace ApartmentsAllocationHelper
                 if (AccessDbFile.ShowDialog() == true)
                 {
                     DbLocation = AccessDbFile.FileName;
-                    MigrationSlientWorker.RunWorkerAsync();
+                    MigrationSilentWorker.RunWorkerAsync();
                     DescriptionDetailsTxt.Visibility = Visibility.Visible;
                 }
             }
