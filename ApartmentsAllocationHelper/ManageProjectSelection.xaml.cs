@@ -99,8 +99,8 @@ namespace ApartmentsAllocationHelper
                 {
                     showBtn.IsEnabled = false;
                     projectDetailsBtn.IsEnabled = false;
-                    projectDetailsLoaderAgent.RunWorkerAsync();
                     curId = projectsComboBox.SelectedValue.ToString();
+                    projectDetailsLoaderAgent.RunWorkerAsync();
                 }
             }
             catch (Exception ex)
