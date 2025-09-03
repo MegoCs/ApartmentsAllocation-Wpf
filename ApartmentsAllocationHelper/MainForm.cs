@@ -1,4 +1,5 @@
 ﻿using ApartmentsAllocationHelper.Models.EntityModels;
+using ApartmentsAllocationHelper.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

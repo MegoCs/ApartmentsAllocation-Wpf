@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ApartmentsAllocationHelper.Models.EntityModels;
+using ApartmentsAllocationHelper.Models;
 
 namespace ApartmentsAllocationHelper
 {
@@ -34,7 +35,6 @@ namespace ApartmentsAllocationHelper
             {
                 using (_dbContext = new ApartmentDeliveryDbContext())
                 {
-                    _dbContext.SaveChanges();
                     if (_dbContext.LoginDetails.Any(x => x.UserPassword == passTxt.Password && x.UserName==userNameTxt.Text))
                     {
                         
