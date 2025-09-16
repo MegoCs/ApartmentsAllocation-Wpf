@@ -49,7 +49,7 @@ namespace ApartmentsAllocationHelper
             try
             {
                 curType = apartmentTypesListview.SelectedItem as ApartmentTypesPerTower;
-                typeAreaTxt.Text = curType.ApartmentArea.ToString();
+                typeAreaTxt.Text = curType?.ApartmentArea.ToString() ?? "";
                 if (curType != null)
                 {
                     if (curType.ApartmentImage != null)

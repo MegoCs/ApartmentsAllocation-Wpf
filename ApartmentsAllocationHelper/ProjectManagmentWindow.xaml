@@ -26,7 +26,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="10,0,0,0">
-                                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Source="Assets/Tower.png" Width="50" Height="50"/>
+                                <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="Assets/Tower.png" Width="50" Height="50"/>
                                 <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding TowerName}"/>
                             </StackPanel>
                         </DataTemplate>
@@ -38,9 +38,7 @@
                     <TextBlock Margin="5"  FontSize="18" Text="مالك الوحدة" FontWeight="Bold"/>
                     <TextBlock Margin="5"  Name="curApartClientTxt" Text="" FontSize="18" />
                 </StackPanel>
-                <Image Name="ApartmentImg" Margin="10"/>
-
-                
+                <Image Name="ApartmentImg" Stretch="UniformToFill" />
             </StackPanel>
         </Border>
         
